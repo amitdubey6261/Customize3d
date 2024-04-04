@@ -1,4 +1,4 @@
-import { Materials, Materials2 } from "../Utils/Assets";
+import { Materials2 } from "../Utils/Assets";
 import Experience from "./Experience";
 
 export default class DragAndDrop {

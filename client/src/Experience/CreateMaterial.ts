@@ -2,7 +2,7 @@ import * as _ from 'three';
 import Experience from './Experience';
 import { loadersType } from './LoadModels';
 import { GLTF, Reflector } from 'three/examples/jsm/Addons.js';
-import { Materials, Materials2 } from '../Utils/Assets';
+import { Materials2 } from '../Utils/Assets';
 
 export default class CreateMaterial {
     experience: Experience;

@@ -10,7 +10,7 @@ export default class Render {
 
     constructor() {
         this.experience = new Experience();
-        this.enabled = false ; 
+        this.enabled = true ; 
         this.createRenderer();
         this.createComposer();
     }

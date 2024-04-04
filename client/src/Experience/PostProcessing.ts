@@ -1,5 +1,5 @@
 import { EffectComposer } from "postprocessing";
-import { defaultSSROptions, SSREffect } from 'screen-space-reflections';
+import { defaultSSROptions  } from 'screen-space-reflections';
 import Experience from "./Experience";
 import * as _ from 'three';
 
