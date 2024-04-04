@@ -44,7 +44,7 @@ export default class Experience {
                 this.renderer = new Render();
                 this.resources = new LoadModels() ; 
                 this.env = new Environment();
-                // this.postprocessing = new PostProcessing() ; 
+                this.postprocessing = new PostProcessing() ; 
                 this.createMaterial = new CreateMaterial() ; 
                 this.handleHTML = new HandleHTML() ;
                 this.world = new World() ; 

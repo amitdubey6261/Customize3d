@@ -75,230 +75,6 @@ export type CustomMaterial = {
     specular_texture: string,
 }
 
-export const Materials: CustomMaterial[] = [
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material1/base.png',
-        normal_texture: 'Textures/Material1/normal.png',
-        height_texture: 'Textures/Material1/height.png',
-        roughness_texture: 'Textures/Material1/rough.png',
-        metalic_texture: 'Textures/Material1/opacity.png',
-        ao_texture: 'Textures/Material1/ao.png',
-        opacity_texture: 'Textures/Material1/metal.png',
-        specular_texture: 'Textures/Material1/specular.png'
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 4,
-            y: 4,
-        },
-        base_texture: 'Textures/Material2/base.png',
-        normal_texture: 'Textures/Material2/normal.png',
-        height_texture: 'Textures/Material2/height.png',
-        roughness_texture: 'Textures/Material2/rough.png',
-        metalic_texture: 'Textures/Material2/metal.png',
-        ao_texture: 'Textures/Material2/ao.png',
-        opacity_texture: 'Textures/Material2/opacity.png',
-        specular_texture: 'Textures/Material2/specular.png'
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material4/base.jpg',
-        normal_texture: 'Textures/Material4/normal.jpg',
-        height_texture: 'Textures/Material4/height.jpg',
-        roughness_texture: 'Textures/Material4/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material5/base.jpg',
-        normal_texture: 'Textures/Material5/normal.jpg',
-        height_texture: 'Textures/Material5/height.jpg',
-        roughness_texture: 'Textures/Material5/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material6/base.jpg',
-        normal_texture: 'Textures/Material6/normal.jpg',
-        height_texture: 'Textures/Material6/height.jpg',
-        roughness_texture: 'Textures/Material6/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material7/base.jpg',
-        normal_texture: 'Textures/Material7/normal.jpg',
-        height_texture: 'Textures/Material7/height.jpg',
-        roughness_texture: 'Textures/Material7/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material8/base.jpg',
-        normal_texture: 'Textures/Material8/normal.jpg',
-        height_texture: 'Textures/Material8/height.jpg',
-        roughness_texture: 'Textures/Material8/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material9/base.jpg',
-        normal_texture: 'Textures/Material9/normal.jpg',
-        height_texture: 'Textures/Material9/height.jpg',
-        roughness_texture: 'Textures/Material9/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Leather',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material10/base.jpg',
-        normal_texture: 'Textures/Material10/normal.jpg',
-        height_texture: 'Textures/Material10/height.jpg',
-        roughness_texture: 'Textures/Material10/rough.jpg',
-        metalic_texture: '',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Metal',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material11/base.jpg',
-        normal_texture: 'Textures/Material11/normal.jpg',
-        height_texture: 'Textures/Material11/height.jpg',
-        roughness_texture: 'Textures/Material11/rough.jpg',
-        metalic_texture: 'Textures/Material11/metal.jpg',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Metal',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material12/base.jpg',
-        normal_texture: 'Textures/Material12/normal.jpg',
-        height_texture: 'Textures/Material12/height.jpg',
-        roughness_texture: 'Textures/Material12/rough.jpg',
-        metalic_texture: 'Textures/Material12/metal.jpg',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Metal',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material3/base.png',
-        normal_texture: 'Textures/Material3/normal.png',
-        height_texture: 'Textures/Material3/height.png',
-        roughness_texture: 'Textures/Material3/rough.png',
-        metalic_texture: 'Textures/Material3/metal.png',
-        ao_texture: 'Textures/Material3/ao.png',
-        opacity_texture: 'Textures/Material3/opacity.png',
-        specular_texture: 'Textures/Material3/specular.png'
-    },
-    {
-        name: 'Calfskin_Leather',
-        category: 'Metal',
-        ref_image: 'https://d2629xvaofl3d3.cloudfront.net/Bull_Leather.png',
-        tiling: {
-            x: 5,
-            y: 5,
-        },
-        base_texture: 'Textures/Material13/base.jpg',
-        normal_texture: 'Textures/Material13/normal.jpg',
-        height_texture: 'Textures/Material13/height.jpg',
-        roughness_texture: 'Textures/Material13/rough.jpg',
-        metalic_texture: 'Textures/Material13/metal.jpg',
-        ao_texture: '',
-        opacity_texture: '',
-        specular_texture: ''
-    },
-]
-
 export type CustomMaterial2 = {
     name: string,
     img_ref: string,
@@ -348,14 +124,544 @@ export type CustomMaterial2 = {
         threeK: string,
     },
     tiling: {
-        x: 5,
-        y: 5,
+        x: number,
+        y: number,
     }
 }
 
 export const Materials2: CustomMaterial2[] = [
     {
-        name: 'bull_leather',
+        name: 'Blue Fabric',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Dark Blue Fabric',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Wool Fabric',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Check Pattern',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/ao.jpg',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'Polyster',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'Red Checked',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/normal.jpg',
+            twoK: 'materials/zip/RedChecked/2K/normal.jpg',
+            threeK: 'materials/zip/RedChecked/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/ao.jpg',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'White Black Striped',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'White Tiled',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/2K/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/4K/ao.jpg',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'Woven Red Fabric',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/2K/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/4K/ao.jpg',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 10,
+            y: 10
+        }
+    },
+    {
+        name: 'Green Wool',
+        category: 'leather&fabric',
+        targetGLBModel: {
+            name: 'Sofa',
+            targetOnly: [],
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/1K/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/2K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/4K/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/1K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/4K/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/1K/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/2K/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/4K/rough.jpg',
+        },
+        metal: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/1K/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/2K/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/4K/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 20,
+            y: 20
+        }
+    },
+    {
+        name: 'Bull Leather',
         category: 'leather&fabric',
         targetGLBModel: {
             name: 'Sofa',
@@ -408,7 +714,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'calfskin_leather',
+        name: 'Calfskin Leather',
         category: 'leather&fabric',
         targetGLBModel: {
             name: 'Sofa',
@@ -418,7 +724,7 @@ export const Materials2: CustomMaterial2[] = [
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/calfskin_leather/1K/jpeg/base.jpg',
             twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/calfskin_leather/2K/jpeg/base.jpg',
-            threeK: 'materials/leatherAndfabric/calfskin_leather/4K/jpeg/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/calfskin_leather/4K/jpeg/base.jpg',
         },
         normal: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/calfskin_leather/1K/jpeg/normal.jpg',
@@ -461,7 +767,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'cotton_rich_tricotine_weave',
+        name: 'Cotton Rich Tricotine Weave',
         category: 'leather&fabric',
         targetGLBModel: {
             name: 'Sofa',
@@ -514,60 +820,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'satin_fabric',
-        category: 'leather&fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [],
-        },
-        img_ref: '',
-        base: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/base.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/base.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/base.jpg',
-        },
-        normal: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/normal.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/normal.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/normal.jpg',
-        },
-        rough: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/rough.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/rough.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/rough.jpg',
-        },
-        metal: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/metal.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/metal.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/metal.jpg',
-        },
-        Ao: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/ao.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/ao.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/ao.jpg',
-        },
-        height: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/height.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/height.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/height.jpg',
-        },
-        specular: {
-            oneK: '',
-            twoK: '',
-            threeK: '',
-        },
-        opacity: {
-            oneK: '',
-            twoK: '',
-            threeK: '',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
-    },
-    {
-        name: 'jersey_stitch_fabric',
+        name: 'Jersey Stitch Fabric',
         category: 'leather&fabric',
         targetGLBModel: {
             name: 'Sofa',
@@ -595,9 +848,9 @@ export const Materials2: CustomMaterial2[] = [
             threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/4K/jpeg/metal.jpg',
         },
         Ao: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/1K/jpeg/ao.jpg',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/2K/jpeg/ao.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/satin_fabric/4K/jpeg/ao.jpg',
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/1K/jpeg/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/2K/jpeg/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/4K/jpeg/ao.jpg',
         },
         height: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/1K/jpeg/height.jpg',
@@ -620,7 +873,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'bamboo_wood_varnished',
+        name: 'Bamboo Wood Varnished',
         category: 'wood',
         targetGLBModel : {
             name : 'Floor' , 
@@ -673,7 +926,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'natural_cross_laminated_wood',
+        name: 'Natural Cross Laminated Wood',
         category: 'wood',
         targetGLBModel : {
             name : 'Floor' , 
@@ -726,7 +979,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'abandoned_factory_tiled_floor',
+        name: 'Abandoned Factory Tiled Floor',
         category: 'wood',
         targetGLBModel : {
             name : 'Floor' , 
@@ -779,7 +1032,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'natural_cross_laminated_wood',
+        name: 'Natural Cross Laminated Wood',
         category: 'wood',
         targetGLBModel : {
             name : 'Floor' , 
@@ -832,7 +1085,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'steel',
+        name: 'Steel',
         category: 'metal',
         targetGLBModel : {
             name : 'Coffee_Table' , 
@@ -885,7 +1138,7 @@ export const Materials2: CustomMaterial2[] = [
         }
     },
     {
-        name: 'copper',
+        name: 'Copper',
         category: 'metal',
         targetGLBModel : {
             name : 'Coffee_Table' , 

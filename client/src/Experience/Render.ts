@@ -10,8 +10,9 @@ export default class Render {
 
     constructor() {
         this.experience = new Experience();
-        this.enabled = true ; 
+        this.enabled = false ; 
         this.createRenderer();
+        this.createComposer();
     }
 
     createRenderer() {
@@ -21,8 +22,9 @@ export default class Render {
             canvas: this.experience.canvas , 
             powerPreference: "high-performance",
             premultipliedAlpha: false,
-            // preserveDrawingBuffer: true
-
+            // depth : false , 
+            // preserveDrawingBuffer : true , 
+            stencil : false , 
         })
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -31,11 +33,10 @@ export default class Render {
         this.renderer.outputColorSpace = _.SRGBColorSpace;
         this.renderer.toneMapping =  _.ACESFilmicToneMapping;
         this.renderer.autoClear = false ; 
-        // this.renderer.toneMappingExposure = .7 ; 
     }
 
     createComposer(){
-        this.composer = new PP.EffectComposer( this.renderer , { frameBufferType : _.HalfFloatType}) ; 
+        this.composer = new PP.EffectComposer( this.renderer) ; 
         this.composer.addPass(new PP.RenderPass(this.experience.scene , this.experience.camera.camera)) ;
         return this.composer ;
     }

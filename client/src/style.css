@@ -106,3 +106,8 @@
     transform: rotate(360deg);
   }
 }
+
+.image-name{
+  font-weight:500;
+  margin-top: 15px;
+}

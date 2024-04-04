@@ -2,7 +2,7 @@ import { GLTF } from "three/examples/jsm/Addons.js";
 import Experience from "./Experience";
 import DragAndDrop from "./DragAndDrop";
 import { createSubsurfaceMaterial, replaceMaterial } from "./CustomMaterial";
-import { V_GGX_SmithCorrelated } from "three/examples/jsm/nodes/Nodes.js";
+import * as _ from 'three' ; 
 
 export default class World{
     experience : Experience ; 
@@ -20,5 +20,10 @@ export default class World{
         replaceMaterial( lamp.scene , subsurfaceMaterial ) ;  
         this.DragAndDrop = new DragAndDrop() ; 
         this.DragAndDrop.handleDragAndDrop() ; 
+
+        const hdridata = this.experience.resources.loadedhdris.get('DancingHall') ; 
+        const floor = new _.Mesh(new _.PlaneGeometry(100, 100).applyMatrix4(new _.Matrix4().makeRotationX(-Math.PI / 2)), new _.MeshStandardMaterial({ side: _.DoubleSide, roughness: 0.1, envMap: hdridata?.hdri , color: new _.Color(1, 1, 1) })) ; 
+        floor.position.y = -.1
+        this.experience.scene.add( floor ) ; 
     }
 }
