@@ -26,7 +26,7 @@ export default class Experience {
     world : World ; 
     postprocessing : PostProcessing ;
     handleHTML : HandleHTML ; 
-    createMaterial : CreateMaterial ; 
+    customMaterial : CreateMaterial ; 
     adnavanced : AdvancedTab ; 
 
     constructor(canvas?: HTMLCanvasElement) {
@@ -45,9 +45,9 @@ export default class Experience {
                 this.resources = new LoadModels() ; 
                 this.env = new Environment();
                 this.postprocessing = new PostProcessing() ; 
-                this.createMaterial = new CreateMaterial() ; 
-                this.handleHTML = new HandleHTML() ;
+                this.customMaterial = new CreateMaterial() ; 
                 this.world = new World() ; 
+                this.handleHTML = new HandleHTML() ;
                 setTimeout(()=>{
                     this.adnavanced = new AdvancedTab() ;
                     const elem = document.querySelector('.spinner') as HTMLInputElement ; 
@@ -72,7 +72,7 @@ export default class Experience {
         if (this.camera)
             this.camera.update();
 
-        if (this.createMaterial)
-            this.createMaterial.update();
+        if (this.customMaterial)
+            this.customMaterial.update();
     }
 }

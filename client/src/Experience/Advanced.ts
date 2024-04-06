@@ -32,7 +32,7 @@ export default class AdvancedTab{
     }
 
     SSR(){
-        const mirror = this.experience.createMaterial.ReflectorMaterial() ;
+        const mirror = this.experience.customMaterial.ReflectorMaterial() ;
         mirror.rotateX(-Math.PI/2) ; 
         mirror.position.set( 0 , -.02 , 0 ) ;
         const elem = document.querySelector('#ssr') as HTMLInputElement  ; 

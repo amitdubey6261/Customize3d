@@ -16,7 +16,7 @@ export default class DragAndDrop {
             e.addEventListener('dragend', () => {
                 const model = material.get(Materials2[idx].targetGLBModel.name);
                 if (model !== undefined) {
-                    this.experience.createMaterial.ApplyMaterial(model, idx);
+                    this.experience.customMaterial.ApplyMaterial(model, idx);
                 }
             })
         })

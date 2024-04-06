@@ -1,10 +1,16 @@
 // import { Materials } from "../Utils/Assets";
 import { Materials2 } from "../Utils/Assets";
+import Experience from "./Experience";
 
 export default class HandleHTML {
+    experience : Experience ;
+    downloadStartedSofa : boolean ;
+
     constructor() {
+        this.experience = new Experience() ; 
         this.handleAccordian();
         this.hgandleSofaSwatch();
+        this.downloadStartedSofa = false ; 
     }
 
     handleAccordian() {
@@ -25,16 +31,17 @@ export default class HandleHTML {
     }
 
     hgandleSofaSwatch() {
-        // Materials.forEach((elem) => {
-        //     const HtmlString = `<div class="image"><img class="sofa-images" src=${elem.base_texture} alt=""></div>`
-        //     let range = document.createRange() ; 
-        //     let frag = range.createContextualFragment(HtmlString) ; 
-        //     const sofaContainer = document.getElementById('sofa-swatch') ; 
-        //     sofaContainer?.appendChild( frag ) ; 
-        // })
+        const elem = document.getElementById('sofa-head') as HTMLElement ;
+
+        elem.addEventListener('click' , ()=>{
+            if( this.downloadStartedSofa == false ){
+                this.experience.resources.preLoadTexture('leather&fabric') ; 
+                this.downloadStartedSofa = true ; 
+            }
+        }) 
 
         Materials2.forEach((elem)=>{
-            const HtmlString = `<div class="image"><img class="sofa-images" src=${elem.base.oneK} alt=""><div>` ; 
+            const HtmlString = `<div class="image"><img class="sofa-images" src=${elem.base?.oneK} alt=""><div>` ; 
             let range = document.createRange() ; 
             let frag = range.createContextualFragment(HtmlString) ;
 
@@ -71,7 +78,6 @@ export default class HandleHTML {
                 metalSwatch?.appendChild( frag ) ;
                 metalSwatch?.appendChild( frag2 ) ; 
             }
-
         })
     }
 }

@@ -406,12 +406,12 @@ export const Materials2: CustomMaterial2[] = [
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/base.jpg',
             twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/base.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/base.jpg',
         },
         normal: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/normal.jpg',
-            twoK: 'materials/zip/RedChecked/2K/normal.jpg',
-            threeK: 'materials/zip/RedChecked/4K/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/2K/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/4K/normal.jpg',
         },
         rough: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/rough.jpg',
@@ -1168,7 +1168,7 @@ export const Materials2: CustomMaterial2[] = [
         Ao: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/ao.jpg',
             twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/ao.jpg',
-            threeK: 'materials/metal/copper/4K/jpeg/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/ao.jpg',
         },
         height: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/height.jpg',
