@@ -1,45 +1,24 @@
-import { Materials2 } from "../Utils/Assets";
+
+import CreateMaterial from "./CreateMaterial";
 import Experience from "./Experience";
 
 export default class DragAndDrop {
     experience: Experience;
+    customMaterial : CreateMaterial ; 
 
     constructor() {
         this.experience = new Experience();
+        this.customMaterial = this.experience.customMaterial; 
     }
 
     handleDragAndDrop() {
-        const material = this.experience.resources.loadedModels;
-        const sofaImages = document.getElementsByClassName('sofa-images');
-
-        Array.from(sofaImages).forEach((e, idx) => {
-            e.addEventListener('dragend', () => {
-                const model = material.get(Materials2[idx].targetGLBModel.name);
-                if (model !== undefined) {
-                    this.experience.customMaterial.ApplyMaterial(model, idx);
-                }
+        const images = document.getElementsByClassName('img-thumbnail') ; 
+        Array.from(images).map((elem)=>{
+            elem.addEventListener('dragend' , ()=>{
+                const idx = elem.getAttribute('uid') ; 
+                this.customMaterial.ApplyMaterial(Number(idx)) ; 
             })
         })
-
-
     }
-    // handleDragAndDrop() {
-    //     const material = this.experience.resources.loadedModels;
-    //     const sofaImages = document.getElementsByClassName('sofa-images');
-    //     Array.from(sofaImages).forEach((e, idx) => {
-    //         e.addEventListener('dragend', () => {
-    //             const model = material.get('Sofa');
-    //             const model2 = material.get('Coffee_Table')
-    //             if (idx >= 8) {
-    //                 if (model2 !== undefined)
-    //                     this.experience.createMaterial.ApplyMaterial(model2, idx);
-    //             }
-    //             else {
-    //                 if (model !== undefined) {
-    //                     this.experience.createMaterial.ApplyMaterial(model, idx);
-    //                 }
-    //             }
-    //         })
-    //     })
-    // }
+
 }

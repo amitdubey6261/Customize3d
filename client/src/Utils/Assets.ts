@@ -57,28 +57,11 @@ export const hdridata: hdritype[] = [
     }
 ]
 
-export type CustomMaterial = {
-    name: string,
-    category: string,
-    ref_image: string,
-    tiling: {
-        x: number,
-        y: number,
-    },
-    base_texture: string,
-    normal_texture: string,
-    height_texture: string,
-    roughness_texture: string,
-    metalic_texture: string,
-    ao_texture: string,
-    opacity_texture: string,
-    specular_texture: string,
-}
-
 export type CustomMaterial2 = {
     name: string,
     img_ref: string,
     category: string,
+    parnetContainer : string ,
     targetGLBModel: {
         name: string,
         targetOnly: string[],
@@ -132,7 +115,8 @@ export type CustomMaterial2 = {
 export const Materials2: CustomMaterial2[] = [
     {
         name: 'Blue Fabric',
-        category: 'leather&fabric',
+        category: 'Fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -185,7 +169,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Dark Blue Fabric',
-        category: 'leather&fabric',
+        parnetContainer : 'Fabric',
+        category: 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -238,7 +223,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Wool Fabric',
-        category: 'leather&fabric',
+        category: 'Fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -291,7 +277,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Check Pattern',
-        category: 'leather&fabric',
+        category: 'Fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -345,6 +332,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Polyster',
         category: 'leather&fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -398,6 +386,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Red Checked',
         category: 'leather&fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -451,6 +440,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'White Black Striped',
         category: 'leather&fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -504,6 +494,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'White Tiled',
         category: 'leather&fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -557,6 +548,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Woven Red Fabric',
         category: 'leather&fabric',
+        parnetContainer : 'Wool',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -610,6 +602,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Green Wool',
         category: 'leather&fabric',
+        parnetContainer : 'Wool',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -663,6 +656,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Bull Leather',
         category: 'leather&fabric',
+        parnetContainer : 'Leather',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -716,6 +710,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Calfskin Leather',
         category: 'leather&fabric',
+        parnetContainer : 'Leather',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -769,6 +764,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Cotton Rich Tricotine Weave',
         category: 'leather&fabric',
+        parnetContainer : 'Wool',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -822,6 +818,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Jersey Stitch Fabric',
         category: 'leather&fabric',
+        parnetContainer : 'Fabric',
         targetGLBModel: {
             name: 'Sofa',
             targetOnly: [],
@@ -875,6 +872,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Bamboo Wood Varnished',
         category: 'wood',
+        parnetContainer : 'Wood',
         targetGLBModel : {
             name : 'Floor' , 
             targetOnly : [] , 
@@ -928,6 +926,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Natural Cross Laminated Wood',
         category: 'wood',
+        parnetContainer : 'Wood',
         targetGLBModel : {
             name : 'Floor' , 
             targetOnly : [] , 
@@ -981,6 +980,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Abandoned Factory Tiled Floor',
         category: 'wood',
+        parnetContainer : 'Wood',
         targetGLBModel : {
             name : 'Floor' , 
             targetOnly : [] , 
@@ -1034,6 +1034,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Natural Cross Laminated Wood',
         category: 'wood',
+        parnetContainer : 'Wood',
         targetGLBModel : {
             name : 'Floor' , 
             targetOnly : [] , 
@@ -1087,6 +1088,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Steel',
         category: 'metal',
+        parnetContainer : 'Metal',
         targetGLBModel : {
             name : 'Coffee_Table' , 
             targetOnly : ['Box002' , 'Box003' , 'Circle001'] , 
@@ -1140,6 +1142,7 @@ export const Materials2: CustomMaterial2[] = [
     {
         name: 'Copper',
         category: 'metal',
+        parnetContainer : 'Metal',
         targetGLBModel : {
             name : 'Coffee_Table' , 
             targetOnly : ['Box002' , 'Box003' , 'Circle001'] , 

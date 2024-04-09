@@ -22,8 +22,6 @@ export default class Render {
             canvas: this.experience.canvas , 
             powerPreference: "high-performance",
             premultipliedAlpha: false,
-            // depth : false , 
-            // preserveDrawingBuffer : true , 
             stencil : false , 
         })
         this.renderer.setPixelRatio(window.devicePixelRatio);

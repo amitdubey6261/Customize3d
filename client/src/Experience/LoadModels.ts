@@ -102,81 +102,129 @@ export default class LoadModels {
         })
     }
 
-    preLoadTexture(category: string) {
-        let idx = 0;
-        const load = async () => {
-            if( idx >= Materials2.length ){
-                return ; 
-            }
-            if( category == Materials2[idx].category  ){
-                console.log('Downloading' , Materials2[idx].name );
-                const textureContainer : TextureContainer = {
-                    base : {
-                        onek : await this.loaders.textureloader.loadAsync( Materials2[idx].base.oneK ) , 
-                        twok : await this.loaders.textureloader.loadAsync( Materials2[idx].base.twoK ), 
-                        threek : await this.loaders.textureloader.loadAsync( Materials2[idx].base.threeK ) , 
-                    } , 
-                    normal : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    rough : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    metal : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    Ao : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    height : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    specular : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                    opacity : {
-                        onek : null , 
-                        twok : null , 
-                        threek : null , 
-                    } , 
-                }
+    LoadTexturesOfCategory(category: string): Promise<any> {
+        console.log(category);
+        return new Promise(async (resolve, reject) => {
+            try {
+                const promises = Materials2.map(async (e) => {
+    
+                    if (category == e.parnetContainer) {
+                        const baseTexture = await this.loaders.textureloader.loadAsync(e.base.oneK);
 
-                this.loadedTextures.set(Materials2[idx].name , textureContainer ) ; 
-                console.log(this.loadedTextures);
-                idx ++ ; 
-                if( !this.downloadPause ){
-                    load() ; 
-                }
-                else{
-                    await this.waitForResume();
-                    load();
-                }
+                        const loadedTex :TextureContainer = {
+                            base:{onek:baseTexture , twok : null , threek : null } , 
+                            normal:{onek:null , twok : null , threek : null } , 
+                            rough:{onek:null , twok : null , threek : null } , 
+                            metal:{onek:null , twok : null , threek : null } , 
+                            Ao:{onek:null , twok : null , threek : null } , 
+                            specular:{onek:null , twok : null , threek : null } , 
+                            opacity:{onek:null , twok : null , threek : null } , 
+                            height:{onek:null , twok : null , threek : null } , 
+                        }
+
+                        console.log(baseTexture);
+
+                        this.loadedTextures.set(e.name , loadedTex ) ; 
+
+                        return baseTexture; 
+                    }
+                });
+                
+                const textures = await Promise.all(promises);
+                resolve(textures); 
+            } catch (error) {
+                console.error("Error occurred while loading textures:", error);
+                reject(error); 
             }
-            else{
-                idx ++ ; 
-                load();
-            }
-        }
-        load();
+        });
     }
 
-    waitForResume = async () => {
-        while (this.downloadPause) {
-            await new Promise(resolve => setTimeout(resolve, 100)); // Check every 100 milliseconds if download is resumed
-        }
-    };
+    // LoadTexturesOfCategory(category: string):Promise<any>{
+    //     return new Promise(async ()=>{
+    //         Materials2.map( async (e)=>{
+    //             if( category == e.parnetContainer ){
+    //                 const baseTexture = await this.loaders.textureloader.loadAsync(e.base.oneK) ;
+    //                 console.log(baseTexture); 
+    //             }
+    //         })
+    //     })
+    // }
+
+    // preLoadTexture(category: string) {
+    //     let idx = 0;
+    //     const load = async () => {
+    //         if( idx >= Materials2.length ){
+    //             return ; 
+    //         }
+    //         if( category == Materials2[idx].category  ){
+    //             console.log('Downloading' , Materials2[idx].name );
+    //             const textureContainer : TextureContainer = {
+    //                 base : {
+    //                     onek : await this.loaders.textureloader.loadAsync( Materials2[idx].base.oneK ) , 
+    //                     twok : null, 
+    //                     threek : null , 
+    //                 } , 
+    //                 normal : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 rough : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 metal : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 Ao : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 height : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 specular : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //                 opacity : {
+    //                     onek : null , 
+    //                     twok : null , 
+    //                     threek : null , 
+    //                 } , 
+    //             }
+
+    //             this.loadedTextures.set(Materials2[idx].name , textureContainer ) ; 
+    //             console.log(this.loadedTextures);
+    //             idx ++ ; 
+    //             if( !this.downloadPause ){
+    //                 load() ; 
+    //             }
+    //             else{
+    //                 await this.waitForResume();
+    //                 load();
+    //             }
+    //         }
+    //         else{
+    //             idx ++ ; 
+    //             load();
+    //         }
+    //     }
+    //     load();
+    // }
+
+    // waitForResume = async () => {
+    //     while (this.downloadPause) {
+    //         await new Promise(resolve => setTimeout(resolve, 100)); // Check every 100 milliseconds if download is resumed
+    //     }
+    // };
     
 
 
@@ -228,9 +276,4 @@ export default class LoadModels {
     //         }
     //     })
     // }
-
-    loadTexture() {
-
-    }
-
 }

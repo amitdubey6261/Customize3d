@@ -35,7 +35,7 @@ export default class Experience {
                 Experience.instance = this ;
                 this.data = data ; 
                 this.hdridata = hdridata ; 
-
+                
                 this.time = new Time();
                 this.canvas = canvas;
                 this.scene = new _.Scene;
@@ -51,7 +51,9 @@ export default class Experience {
                 setTimeout(()=>{
                     this.adnavanced = new AdvancedTab() ;
                     const elem = document.querySelector('.spinner') as HTMLInputElement ; 
+                    const elem2 = document.querySelector('.overlay') as HTMLInputElement ; 
                     elem.style.display = 'none' ; 
+                    elem2.style.display = 'none'
                 } , 5000 ) ; 
                 
                 
