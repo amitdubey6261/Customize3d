@@ -30,52 +30,133 @@ export default class CreateMaterial {
         }
     }
 
-    ApplyMaterial(idx:number){
-        const targetModel = Materials2[0].targetGLBModel.name ; 
-        const name  = Materials2[idx].name ; 
-        const createdMaterial = this.createMaterial(name , idx  , Materials2[idx].tiling.x , Materials2[idx].tiling.y ) ; 
-        console.log(createdMaterial);
-        const glb:GLTF = this.experience.resources.loadedModels.get(targetModel) as GLTF ;
-        glb.scene.traverse((e)=>{
-            if( e instanceof _.Mesh ){
-                e.material = createdMaterial ; 
-            }
-        })
+    async ApplyMaterial(idx: number) {
+        const name = Materials2[idx].name;
+        const material = await this.createMaterial(name, idx, Materials2[idx].tiling.x, Materials2[idx].tiling.y);
+        alert('yes') ; 
+        this.experience.adnavanced.adjustMaterialTiling(material) ; 
     }
 
-    createMaterial = (name:string , idx:number ,  x:number , y:number ) =>{
-        const material = new _.MeshPhysicalMaterial() ; 
+    createMaterial = async (name: string, idx: number, x: number, y: number):Promise<_.MeshPhysicalMaterial> => {
+        return new Promise(async (res) => {
+            const targetModel = Materials2[idx].targetGLBModel;
+            const glb: GLTF = this.experience.resources.loadedModels.get(targetModel.name) as GLTF;
 
-        const textures = this.loadedTextures.get(name) ;
+            const material = new _.MeshPhysicalMaterial();
+            material.envMap = this.experience.scene.environment ; 
+            material.envMapIntensity = .1 ; 
+            material.side = _.FrontSide ; 
 
-        if( textures !== undefined ){
-            this.setTextureParams(textures.base.onek , { x , y }) ; 
-            material.map = textures.base.onek ; 
-        } 
+            glb.scene.traverse((e) => {
+                if( targetModel.targetOnly.length > 0 ){
+                    if( targetModel.targetOnly.includes( e.name ) ){
+                        if( e instanceof _.Mesh ){
+                            e.material = material ; 
+                        }
+                    }
+                }
+                else{
+                    if( e instanceof _.Mesh ){
+                        e.material = material ; 
+                    }
+                }
+            })
 
-        const ele = Materials2[idx] ; 
-        const AoMap = this.loaders.textureloader.load(ele.Ao.oneK) ; 
-        const normalMap = this.loaders.textureloader.load(ele.normal.oneK) ; 
-        const roughMap = this.loaders.textureloader.load(ele.rough.oneK) ; 
-        const heightMap = this.loaders.textureloader.load(ele.height.oneK) ; 
-        const opacityMap = this.loaders.textureloader.load(ele.opacity.oneK) ; 
-        const specularMap = this.loaders.textureloader.load(ele.specular.oneK) ; 
+            const textures = this.loadedTextures.get(name);
 
-        this.setTextureParams( AoMap , { x , y } ) ;
-        this.setTextureParams( normalMap , { x , y } ) ;
-        this.setTextureParams( roughMap , { x , y } ) ;
-        this.setTextureParams( heightMap , { x , y } ) ;
-        this.setTextureParams( opacityMap , { x , y } ) ;
-        this.setTextureParams( specularMap , { x , y } ) ;
+            if (textures !== undefined) {
+                this.setTextureParams(textures.base.onek, { x, y });
+                material.map = textures.base.onek;
+            }
 
-        material.normalMap = normalMap ; 
-        material.roughnessMap = roughMap ; 
-        material.bumpMap = heightMap ; 
-        material.aoMap = AoMap ; 
-        material.transmissionMap = opacityMap ; 
-        material.specularColorMap = specularMap ; 
+            const ele = Materials2[idx];
 
-        return material ; 
+            if( ele.normal.oneK !== '' ){
+                if( textures && textures.normal && textures.normal.onek == null ){
+                    const nmap = await this.loaders.textureloader.loadAsync(ele.normal.oneK) ; 
+                    this.setTextureParams(nmap, { x, y });
+                    textures.normal.onek = nmap ; 
+                    material.normalMap = nmap 
+                }
+                else{
+                    const nmap = textures!.normal.onek ; 
+                    this.setTextureParams(nmap, { x, y });
+                    material.normalMap = nmap 
+                }
+            }
+
+            if( ele.rough.oneK !== '' ){
+                if( textures && textures.rough && textures.rough.onek == null ){
+                    const rmap = await this.loaders.textureloader.loadAsync(ele.rough.oneK) ; 
+                    this.setTextureParams(rmap, { x, y });
+                    textures.rough.onek = rmap ; 
+                    material.roughnessMap = rmap ;
+                }
+                else{
+                    const rmap = textures!.rough.onek ; 
+                    this.setTextureParams(rmap, { x, y });
+                    material.roughnessMap = rmap ;  
+                }
+            }
+
+            if( ele.height.oneK !== '' ){
+                if( textures && textures.height && textures.height.onek == null ){
+                    const hmap = await this.loaders.textureloader.loadAsync(ele.height.oneK) ; 
+                    this.setTextureParams(hmap, { x, y });
+                    textures.height.onek = hmap ; 
+                    material.bumpMap = hmap ;
+                }
+                else{
+                    const hmap = textures!.height.onek ; 
+                    this.setTextureParams(hmap, { x, y });
+                    material.bumpMap = hmap ;  
+                }
+            }
+
+            if (ele.Ao.oneK !== '') {
+                if( textures && textures.Ao && textures.Ao.onek == null ){
+                    const AoMap = await this.loaders.textureloader.loadAsync(ele.Ao.oneK);
+                    this.setTextureParams(AoMap, { x, y });
+                    textures.Ao.onek = AoMap ; 
+                    material.aoMap = AoMap;
+                }
+                else{
+                    const AoMap = textures!.Ao.onek ; 
+                    this.setTextureParams(AoMap, { x, y });
+                    material.aoMap = AoMap;
+                }
+            }
+            
+            if (ele.specular.oneK !== '') {
+                if( textures && textures.specular && textures.specular.onek == null ){
+                    const sMap = await this.loaders.textureloader.loadAsync(ele.specular.oneK);
+                    this.setTextureParams(sMap, { x, y });
+                    textures.Ao.onek = sMap ; 
+                    material.aoMap = sMap;
+                }
+                else{
+                    const sMap = textures!.specular.onek ; 
+                    this.setTextureParams(sMap, { x, y });
+                    material.specularColorMap = sMap;
+                }
+            }
+
+            if (ele.opacity.oneK !== '') {
+                if( textures && textures.opacity && textures.opacity.onek == null ){
+                    const oMap = await this.loaders.textureloader.loadAsync(ele.opacity.oneK);
+                    this.setTextureParams(oMap, { x, y });
+                    textures.Ao.onek = oMap ; 
+                    material.aoMap = oMap;
+                }
+                else{
+                    const oMap = textures!.opacity.onek ; 
+                    this.setTextureParams(oMap, { x, y });
+                    material.transmissionMap = oMap;
+                }
+            }
+
+            res(material);
+        })
     }
 
     HandleTextureResolution() {

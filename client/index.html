@@ -46,7 +46,8 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed preload" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseOneLeather" preloaderOf="Leather" preloaded="false" aria-expanded="false" aria-controls="collapseOneLeather">
+                      data-bs-target="#collapseOneLeather" preloaderOf="Leather" preloaded="false" aria-expanded="false"
+                      aria-controls="collapseOneLeather">
                       Leather
                     </button>
                   </h2>
@@ -57,7 +58,8 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed preload" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwoFabric" preloaderOf="Fabric" preloaded="false" aria-expanded="false" aria-controls="collapseTwoFabric">
+                      data-bs-target="#collapseTwoFabric" preloaderOf="Fabric" preloaded="false" aria-expanded="false"
+                      aria-controls="collapseTwoFabric">
                       Fabric
                     </button>
                   </h2>
@@ -69,7 +71,8 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed preload" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseThreeWool" preloaderOf="Wool" preloaded="false" aria-expanded="false" aria-controls="collapseThreeWool">
+                      data-bs-target="#collapseThreeWool" preloaderOf="Wool" preloaded="false" aria-expanded="false"
+                      aria-controls="collapseThreeWool">
                       Wool
                     </button>
                   </h2>
@@ -80,7 +83,8 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed preload" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseFourVelvet" preloaderOf="Velvet" preloaded="false" aria-expanded="false" aria-controls="collapseFourVelvet">
+                      data-bs-target="#collapseFourVelvet" preloaderOf="Velvet" preloaded="false" aria-expanded="false"
+                      aria-controls="collapseFourVelvet">
                       Velvet
                     </button>
                   </h2>
@@ -106,8 +110,9 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOneMetal" aria-expanded="true" aria-controls="collapseOneMetal">
+                      <button class="accordion-button preload" preloaderOf="Metal" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseOneMetal" aria-expanded="true"
+                        aria-controls="collapseOneMetal">
                         Metallic
                       </button>
                     </h2>
@@ -118,8 +123,9 @@
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwoWood" aria-expanded="false" aria-controls="collapseTwoWood">
+                      <button class="accordion-button collapsed preload" preloaderOf="Wood" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseTwoWood" aria-expanded="false"
+                        aria-controls="collapseTwoWood">
                         Wood
                       </button>
                     </h2>
@@ -134,7 +140,7 @@
 
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                 aria-controls="panelsStayOpen-collapseThree">
                 Glass Variants
@@ -166,7 +172,28 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                       <div class="accordion-body accordion-body-inner">
-                        1
+
+                        <label for="customRange1" class="form-label">Sunlight</label>
+                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
+                          <input class="form-check-input" type="checkbox" role="switch" id="day-night-switch" checked>
+                        </div>
+
+                        <label for="customRange1" class="form-label">Ground Projection</label>
+                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
+                          <input class="form-check-input" type="checkbox" role="switch" id="gps" >
+                        </div>
+ 
+                        <label for="customRange1" class="form-label">HDRI Intensity</label>
+                        <input type="range" class="form-range" id="HDRIIntensity" min=".2" max="5" value=".2">
+
+                        <label for="customRange1" class="form-label">Lamp switch</label>
+                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
+                          <input class="form-check-input" type="checkbox" role="switch" id="LampSwitch" checked>
+                        </div>
+                        
+                        <label for="customRange1" class="form-label">Intensity</label>
+                        <input type="range" class="form-range" id="LampIntensity" min=".5" max="10" value=".5" >
+                        
                       </div>
                     </div>
                   </div>
@@ -178,8 +205,20 @@
                       </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      
                       <div class="accordion-body accordion-body-inner">
-                        2
+
+                        <label for="customRange1" class="form-label">Quality</label>
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Select Texture Quality</option>
+                          <option value="1">1K</option>
+                          <option value="2">2K</option>
+                          <option value="3">4K</option>
+                        </select>
+
+                        <label for="customRange1" class="form-label">Material Tiling</label>
+                        <input type="range" class="form-range" id="MaterialTiling" min="5" max="20" value="5" step="1">
+
                       </div>
                     </div>
                   </div>
@@ -241,9 +280,9 @@
         </div>
         <div style="height: 0px" class="header-child">
           <input type="checkbox" name="" id="gps" />
-          <input type="checkbox" name="" id="ssr" checked />
           <input type="checkbox" name="" id="oneK" checked />
           1K
+          <input type="checkbox" name="" id="ssr" checked />
           <input type="checkbox" name="" id="twoK" false />
           2K
           <input type="checkbox" name="" id="threeK" false />

@@ -86,11 +86,10 @@ export default class LoadModels {
             this.experience.data.forEach(async (elm: datatype, idx) => {
                 const glTF = await this.loaders.glbloader.loadAsync(elm.path);
                 glTF.scene.traverse((e) => {
-                    if (e.type == 'PointLight') {
-                        //@ts-ignore
+                    if (e instanceof _.PointLight) {
                         this.light = e;
                     }
-                    if (e.type == 'Mesh') {
+                    if (e instanceof _.Mesh ) {
                         e.castShadow = true;
                         e.receiveShadow = true;
                     }
@@ -138,142 +137,4 @@ export default class LoadModels {
             }
         });
     }
-
-    // LoadTexturesOfCategory(category: string):Promise<any>{
-    //     return new Promise(async ()=>{
-    //         Materials2.map( async (e)=>{
-    //             if( category == e.parnetContainer ){
-    //                 const baseTexture = await this.loaders.textureloader.loadAsync(e.base.oneK) ;
-    //                 console.log(baseTexture); 
-    //             }
-    //         })
-    //     })
-    // }
-
-    // preLoadTexture(category: string) {
-    //     let idx = 0;
-    //     const load = async () => {
-    //         if( idx >= Materials2.length ){
-    //             return ; 
-    //         }
-    //         if( category == Materials2[idx].category  ){
-    //             console.log('Downloading' , Materials2[idx].name );
-    //             const textureContainer : TextureContainer = {
-    //                 base : {
-    //                     onek : await this.loaders.textureloader.loadAsync( Materials2[idx].base.oneK ) , 
-    //                     twok : null, 
-    //                     threek : null , 
-    //                 } , 
-    //                 normal : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 rough : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 metal : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 Ao : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 height : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 specular : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //                 opacity : {
-    //                     onek : null , 
-    //                     twok : null , 
-    //                     threek : null , 
-    //                 } , 
-    //             }
-
-    //             this.loadedTextures.set(Materials2[idx].name , textureContainer ) ; 
-    //             console.log(this.loadedTextures);
-    //             idx ++ ; 
-    //             if( !this.downloadPause ){
-    //                 load() ; 
-    //             }
-    //             else{
-    //                 await this.waitForResume();
-    //                 load();
-    //             }
-    //         }
-    //         else{
-    //             idx ++ ; 
-    //             load();
-    //         }
-    //     }
-    //     load();
-    // }
-
-    // waitForResume = async () => {
-    //     while (this.downloadPause) {
-    //         await new Promise(resolve => setTimeout(resolve, 100)); // Check every 100 milliseconds if download is resumed
-    //     }
-    // };
-    
-
-
-
-    // preLoadTexture(category : string ){
-    //     Materials2.forEach(async(e)=>{
-    //         if(e.category == category ){
-    //             console.log('Loding started...' , e.name );
-    // const textureContainer : TextureContainer = {
-    //     base : {
-    //         onek : e.base?.oneK ? await this.loaders.textureloader.loadAsync(e.base.oneK) : undefined , 
-    //         twok : e.base?.twoK ? await this.loaders.textureloader.loadAsync(e.base.twoK) : undefined , 
-    //         threek :e.base?.threeK ?  await this.loaders.textureloader.loadAsync(e.base.threeK) : undefined , 
-    //     } , 
-    //     normal : {
-    //         onek :  e.normal?.oneK ? await this.loaders.textureloader.loadAsync(e.normal.oneK) : undefined , 
-    //         twok : e.normal?.twoK ? await this.loaders.textureloader.loadAsync(e.normal.twoK) : undefined , 
-    //         threek : e.normal?.threeK ? await this.loaders.textureloader.loadAsync(e.normal.threeK) : undefined , 
-    //     } , 
-    //     rough: {
-    //         onek: e.rough?.oneK ? await this.loaders.textureloader.loadAsync(e.rough.oneK) : undefined,
-    //         twok: e.rough?.twoK ? await this.loaders.textureloader.loadAsync(e.rough.twoK) : undefined,
-    //         threek: e.rough?.threeK ? await this.loaders.textureloader.loadAsync(e.rough.threeK) : undefined,
-    //     },
-    //     height: {
-    //         onek: e.height?.oneK ? await this.loaders.textureloader.loadAsync(e.height.oneK) : undefined,
-    //         twok: e.height?.twoK ? await this.loaders.textureloader.loadAsync(e.height.twoK) : undefined,
-    //         threek: e.height?.threeK ? await this.loaders.textureloader.loadAsync(e.height.threeK) : undefined,
-    //     },
-    //     specular: {
-    //         onek: e.specular?.oneK ? await this.loaders.textureloader.loadAsync(e.specular.oneK) : undefined,
-    //         twok: e.specular?.twoK ? await this.loaders.textureloader.loadAsync(e.specular.twoK) : undefined,
-    //         threek: e.specular?.threeK ? await this.loaders.textureloader.loadAsync(e.specular.threeK) : undefined,
-    //     },
-    //     Ao: {
-    //         onek: e.Ao?.oneK ? await this.loaders.textureloader.loadAsync(e.Ao.oneK) : undefined,
-    //         twok: e.Ao?.twoK ? await this.loaders.textureloader.loadAsync(e.Ao.twoK) : undefined,
-    //         threek: e.Ao?.threeK ? await this.loaders.textureloader.loadAsync(e.Ao.threeK) : undefined,
-    //     },
-    //     metal: {
-    //         onek: e.metal?.oneK ? await this.loaders.textureloader.loadAsync(e.metal.oneK) : undefined,
-    //         twok: e.metal?.twoK ? await this.loaders.textureloader.loadAsync(e.metal.twoK) : undefined,
-    //         threek: e.metal?.threeK ? await this.loaders.textureloader.loadAsync(e.metal.threeK) : undefined,
-    //     },
-    // } 
-
-    //             console.log(textureContainer);
-    //             console.log('Loading Finished...' , e.name ,  textureContainer );
-    //         }
-    //     })
-    // }
 }

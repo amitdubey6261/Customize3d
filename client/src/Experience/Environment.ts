@@ -64,7 +64,6 @@ export default class Environment {
     }
 
     dayNight(){
-
         const elem = document.getElementById('day-night-switch') as HTMLInputElement  ; 
         
         elem?.addEventListener('input' , ()=>{
