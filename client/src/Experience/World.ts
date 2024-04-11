@@ -21,9 +21,5 @@ export default class World{
         replaceMaterial( lamp.scene , subsurfaceMaterial ) ;  
         this.DragAndDrop = new DragAndDrop() ; 
         this.DragAndDrop.handleDragAndDrop() ; 
-        const hdridata = this.experience.resources.loadedhdris.get('DancingHall') ; 
-        this.floor = new _.Mesh(new _.PlaneGeometry(100, 100).applyMatrix4(new _.Matrix4().makeRotationX(-Math.PI / 2)), new _.MeshStandardMaterial({ side: _.DoubleSide, roughness: 0.1, envMap: hdridata?.hdri , color: new _.Color(1, 1, 1) })) ; 
-        this.floor.position.y = -.1
-        this.experience.scene.add( this.floor ) ; 
     }
 }

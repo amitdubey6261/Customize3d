@@ -28,7 +28,8 @@ export const data: datatype[] = [
     },
     {
         name: 'Window',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/Window.glb',
+        path: 'models/Window.glb',
+        // path: 'https://d2629xvaofl3d3.cloudfront.net/Window.glb',
     },
     {
         name: 'Sofa',
@@ -1185,6 +1186,438 @@ export const Materials2: CustomMaterial2[] = [
         },
         opacity: {
             oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Plane Glass',
+        category: 'Glass',
+        parnetContainer : 'Glass',
+        targetGLBModel : {
+            name : 'Coffee_Table' , 
+            targetOnly : ['Rectangle005'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/base.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/base.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/base.jpg',
+        },
+        normal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/normal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/normal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/normal.jpg',
+        },
+        rough: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/rough.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/rough.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/rough.jpg',
+        },
+        metal: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/metal.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/metal.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/metal.jpg',
+        },
+        Ao: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/ao.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/ao.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/ao.jpg',
+        },
+        height: {
+            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/height.jpg',
+            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/2K/jpeg/height.jpg',
+            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/4K/jpeg/height.jpg',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Glass Pattern',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/PatternGlass/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/PatternGlass/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/PatternGlass/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/PatternGlass/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/PatternGlass/Ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/PatternGlass/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 2,
+            y: 2
+        }
+    },
+    {
+        name: 'Glass Rohmbus Grilled',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Window_01/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Window_01/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Window_01/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Window_01/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Window_01/Ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Window_01/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: 'materials/Glass_Window_01/opacity.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Vintage Glass',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Vintage/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Vintage/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Vintage/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Vintage/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Vintage/ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Vintage/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Glass Grilled',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Grilled/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Grilled/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Grilled/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Grilled/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Grilled/ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Grilled/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: 'materials/Glass_Grilled/opacity.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Glass Frosted',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Frosted/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Frosted/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Frosted/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Frosted/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Frosted/ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Frosted/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Glass Blocks 2',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Blocks_02/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Blocks_02/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Blocks_02/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Blocks_02/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Blocks_02/ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Blocks_02/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        tiling: {
+            x: 5,
+            y: 5
+        }
+    },
+    {
+        name: 'Glass Window 02',
+        category: 'GlassPattern',
+        parnetContainer : 'GlassPattern',
+        targetGLBModel : {
+            name : 'Window' , 
+            targetOnly : ['Plane'] , 
+        },
+        img_ref: '',
+        base: {
+            oneK: 'materials/Glass_Window_02/base.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        normal: {
+            oneK: 'materials/Glass_Window_02/normal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        rough: {
+            oneK: 'materials/Glass_Window_02/rough.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        metal: {
+            oneK: 'materials/Glass_Window_02/metal.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        Ao: {
+            oneK: 'materials/Glass_Window_02/ao.jpg',
+            twoK: '',
+            threeK: '',
+        },
+        height: {
+            oneK: 'materials/Glass_Window_02/height.png',
+            twoK: '',
+            threeK: '',
+        },
+        specular: {
+            oneK: '',
+            twoK: '',
+            threeK: '',
+        },
+        opacity: {
+            oneK: 'materials/Glass_Window_02/opacity.jpg',
             twoK: '',
             threeK: '',
         },

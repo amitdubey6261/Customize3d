@@ -5,9 +5,14 @@ import * as _ from 'three' ;
 export default class AdvancedTab{
     experience : Experience ; 
     gps: GroundProjectedSkybox;
+    floor : _.Mesh ; 
     constructor(){
         this.experience = new Experience() ; 
         this.gps = this.experience.env.gps ; 
+        const hdridata = this.experience.resources.loadedhdris.get('DancingHall') ; 
+        this.floor = new _.Mesh(new _.PlaneGeometry(100, 100).applyMatrix4(new _.Matrix4().makeRotationX(-Math.PI / 2)), new _.MeshStandardMaterial({ side: _.DoubleSide, roughness: 0.1, envMap: hdridata?.hdri , color: new _.Color(1, 1, 1) })) ; 
+        this.floor.position.y = -.1
+        this.experience.scene.add( this.floor ) ; 
         this.HDRIToggle() ;
         this.SSR() ; 
         this.EnvIntensity() ; 
@@ -18,20 +23,18 @@ export default class AdvancedTab{
         const elem = document.querySelector('#gps') as HTMLInputElement ; 
         const helper = new _.GridHelper(100 , 30) ;  
         helper.position.set( 0 , -.01 , 0 ) ;
-        const floor = this.experience.world.floor ; 
-
         this.experience.scene.add(helper);
 
         elem.addEventListener('input' , ()=>{
             if( elem.checked ){
                 this.experience.scene.add(this.gps) ; 
                 this.experience.scene.remove(helper);
-                this.experience.scene.remove(floor) ; 
+                this.experience.scene.remove(this.floor) ; 
             }
             else{
                 this.experience.scene.remove(this.gps) ;
                 this.experience.scene.add(helper);
-                this.experience.scene.add(floor) ; 
+                this.experience.scene.add(this.floor) ; 
             }
         })
     }

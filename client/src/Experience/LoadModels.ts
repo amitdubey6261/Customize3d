@@ -92,6 +92,7 @@ export default class LoadModels {
                     if (e instanceof _.Mesh ) {
                         e.castShadow = true;
                         e.receiveShadow = true;
+                        console.log(e.name);
                     }
                 })
                 this.loadedModels.set(elm.name, glTF);

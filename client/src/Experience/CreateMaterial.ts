@@ -33,7 +33,6 @@ export default class CreateMaterial {
     async ApplyMaterial(idx: number) {
         const name = Materials2[idx].name;
         const material = await this.createMaterial(name, idx, Materials2[idx].tiling.x, Materials2[idx].tiling.y);
-        alert('yes') ; 
         this.experience.adnavanced.adjustMaterialTiling(material) ; 
     }
 
@@ -44,8 +43,15 @@ export default class CreateMaterial {
 
             const material = new _.MeshPhysicalMaterial();
             material.envMap = this.experience.scene.environment ; 
-            material.envMapIntensity = .1 ; 
-            material.side = _.FrontSide ; 
+            material.envMapIntensity = .1 ;
+            material.side = _.FrontSide ;  
+            
+            if(Materials2[idx].category == 'Glass' || Materials2[idx].category == 'GlassPattern'){
+                material.transmission = 1 ; 
+                material.roughness = 0 ; 
+                material.envMapIntensity = 1 ; 
+                material.side = _.DoubleSide ;  
+            }
 
             glb.scene.traverse((e) => {
                 if( targetModel.targetOnly.length > 0 ){
@@ -63,6 +69,7 @@ export default class CreateMaterial {
             })
 
             const textures = this.loadedTextures.get(name);
+            console.log(textures);
 
             if (textures !== undefined) {
                 this.setTextureParams(textures.base.onek, { x, y });
