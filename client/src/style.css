@@ -28,7 +28,7 @@
 }
 
 .ui-container{
-  background-color: rgb(255, 255, 255);
+  background-color: #f5f5f5;
   width: 400px;
   min-height: 100vh;
   position: absolute;
@@ -38,12 +38,12 @@
 }
 
 .accordion{
-  --bs-accordion-btn-color: #FFFFFF;
-  --bs-accordion-bg : #ff8178 ; 
-  --bs-accordion-active-color:#ffffff;
-  --bs-accordion-btn-bg:#ff8178;
-  --bs-accordion-active-bg:#ff5b4f;
-  --bs-accordion-border-color:#ffaeae ; 
+  --bs-accordion-btn-color: #000000;
+  --bs-accordion-bg : #f5f5f5 ; 
+  --bs-accordion-active-color:#000000;
+  --bs-accordion-btn-bg:#e0e0e0;
+  --bs-accordion-active-bg:#aeaeae;
+  --bs-accordion-border-color: #dbdbdb ; 
 }
 
 .form-label{
@@ -167,4 +167,8 @@
 .image-name{
   font-weight:500;
   margin-top: 15px;
+}
+
+.form-label{
+  color: black;
 }
