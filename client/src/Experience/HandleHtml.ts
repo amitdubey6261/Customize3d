@@ -1,5 +1,6 @@
 // import { Materials } from "../Utils/Assets";
 import { Materials2 } from "../Utils/Assets";
+import { sofa_data, sofa_models } from "../Utils/SofaCatalog";
 import Experience from "./Experience";
 
 export default class HandleHTML {
@@ -10,6 +11,7 @@ export default class HandleHTML {
         this.experience = new Experience();
         this.setPreLoading();
         this.hgandleSwatch();
+        this.handleModels();
     }
 
     setPreLoading() {
@@ -34,7 +36,7 @@ export default class HandleHTML {
 
             const htmlString = `<div class="">
             <img src=${elem.base.oneK}
-              class="img-thumbnail"
+              class="img-thumbnail material-thubnail"
               uid=${idx}
             alt="Loading..">
             <p>${elem.name}</p>
@@ -45,6 +47,25 @@ export default class HandleHTML {
 
             const container = document.getElementById(`${elem.parnetContainer}`);
             container?.appendChild(frag)
+        })
+    }
+
+    handleModels(){
+        sofa_models.forEach((elem : sofa_data , idx )=>{
+            const htmlString = `<div class="">
+            <img src=${elem.model_img}
+              class="img-thumbnail model-thumbnail"
+              uid=${idx}
+            alt="Loading..">
+            <p>${elem.name}</p>
+          </div> `
+
+          
+        const range = document.createRange() ; 
+        const frag = range.createContextualFragment(htmlString) ; 
+
+        const container = document.getElementById(`${elem.parent_container}`) ; 
+        container?.appendChild( frag ) ; 
         })
     }
 }

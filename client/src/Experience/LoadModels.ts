@@ -3,6 +3,7 @@ import { TextureLoader } from "three";
 import { DRACOLoader, EXRLoader, GLTF, GLTFLoader, RGBELoader } from "three/examples/jsm/Addons.js";
 import Experience from "./Experience";
 import { Materials2, data, datatype, hdritype } from '../Utils/Assets';
+import { sofa_models } from '../Utils/SofaCatalog';
 
 export type loadersType = {
     glbloader: GLTFLoader,
@@ -32,14 +33,25 @@ export default class LoadModels {
     loadedTextures: Map<string, TextureContainer>;
     downloadStaredFlag: boolean;
     downloadPause: boolean;
+    sofa_group : _.Group ; 
+    table_group : _.Group ; 
+
 
     constructor() {
         this.experience = new Experience();
+        this.createModelGroups() ; 
         this.loadedModels = new Map();
         this.loadedhdris = new Map();
         this.loadedTextures = new Map();
         this.downloadPause = false;
         this.createLoaders();
+    }
+
+    createModelGroups(){
+        this.sofa_group = new _.Group() ; 
+        this.table_group = new _.Group() ;
+        this.experience.scene.add( this.sofa_group ) ;
+        this.experience.scene.add( this.table_group ) ; 
     }
 
     createLoaders() {
@@ -94,7 +106,17 @@ export default class LoadModels {
                     }
                 })
                 this.loadedModels.set(elm.name, glTF);
-                this.experience.scene.add(glTF.scene);
+                if(elm.group){
+                    if( elm.group == 'sofa' ){
+                        this.sofa_group.add(glTF.scene) ; 
+                    }
+                    if( elm.group == 'table' ){
+                        this.table_group.add(glTF.scene) ; 
+                    }
+                }
+                else{
+                    this.experience.scene.add(glTF.scene);
+                }
                 if (idx == data.length - 1) res(this.loadedModels);
             })
         }
@@ -121,8 +143,6 @@ export default class LoadModels {
                             height: { onek: null, twok: null, threek: null },
                         }
 
-                        console.log(baseTexture);
-
                         this.loadedTextures.set(e.name, loadedTex);
 
                         return baseTexture;
@@ -136,5 +156,29 @@ export default class LoadModels {
                 reject(error);
             }
         });
+    }
+
+    async loadGltf(idx : number ) {
+        if( sofa_models[idx].group == 'sofa' ){
+            const group = this.experience.resources.sofa_group ; 
+            console.log(group);
+            group.traverse(elem=>{
+                if( elem instanceof _.Mesh ){
+                    if( elem.material.map ){
+                        elem.material.map.dispose() ; 
+                    }
+                    elem.material.dispose() ; 
+                    elem.geometry.dispose() ; 
+                }
+            })
+
+            group.remove(...group.children) ; 
+
+            sofa_models[idx].model_path.map( async model_link=>{
+                const model = await this.loaders.glbloader.loadAsync(model_link) ; 
+                group.add( model.scene ) ; 
+                console.log(group);
+            })
+        }
     }
 }

@@ -3,43 +3,52 @@ import * as _ from 'three';
 export type datatype = {
     name: string,
     path: string,
+    group : 'sofa' | 'table' | null , 
 }
 
 export const data: datatype[] = [
     {
         name: 'Carpet',
         path: "/models/Carpet.glb",
+        group : null,
     }
     ,
     {
         name: 'Wall',
         path: '/models/Wall.glb',
+        group : null,
     },
     {
         name: 'window',
         path: '/models/Window.glb',
+        group : null,
 
     },
     {
         name: 'Wood_Table',
-        path: '/models/Wood_Table.glb'
+        path: '/models/Wood_Table.glb',
+        group : 'table',
     },
     {
         name: 'Floor',
-        path: '/models/Floor.glb'
+        path: '/models/Floor.glb',
+        group : null,
     },
     {
         name: 'Sofa',
-        path: '/models/Wood_Sofa.glb'
+        path: '/models/Sofa_Models/Wood_Sofa.glb',
+        group : 'sofa',
     },
     {
         name: 'Frames',
         path: '/models/Frames.glb',
+        group : null,
     },
     {
         name: 'Floor_Lamp',
         path: 'https://d2629xvaofl3d3.cloudfront.net/Floor_Lamp.glb',
-    },
+        group : null,
+    }
 ]
 // export const data: datatype[] = [
 //     {
@@ -103,10 +112,6 @@ export type CustomMaterial2 = {
     img_ref: string,
     category: string,
     parnetContainer: string,
-    targetGLBModel: {
-        name: string,
-        targetOnly: string[],
-    },
     base: {
         oneK: string,
         twoK: string,
@@ -157,23 +162,8 @@ export const Materials2: CustomMaterial2[] = [
 
     {
         name: 'Boysenberry Resonance',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Boysenberry_Resonance/1k/base.jpg',
@@ -224,21 +214,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Cerulean Crossing',
         parnetContainer : 'Fabric',
         category: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Cerulean_Crossing/1k/base.jpg',
@@ -289,21 +264,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Cotton Rich Tricotine Weave',
         category: 'Fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/cotton_rich_tricotine_weave/1K/base.jpg',
@@ -354,21 +314,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Neptune Slant',
         category: 'Fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Neptune_Slant/1k/base.jpg',
@@ -417,23 +362,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Satin Fabric',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/satin_fabric/1K/base.jpg',
@@ -482,23 +412,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Urban Orange AireWeave',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Urban_Orange_AireWeave/1k/base.jpg',
@@ -547,23 +462,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Willow Wishper',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer : 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Willow_Wishper/1k/base.jpg',
@@ -618,21 +518,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Blue Fabric',
         category: 'Fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueFabric/1K/base.jpg',
@@ -683,21 +568,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Dark Blue Fabric',
         parnetContainer: 'Fabric',
         category: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BluePattern/1K/base.jpg',
@@ -748,21 +618,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Wool Fabric',
         category: 'Fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/BlueWool/1K/base.jpg',
@@ -813,21 +668,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Check Pattern',
         category: 'Fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Pattern/1K/base.jpg',
@@ -876,23 +716,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Polyster',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Polyster/1K/base.jpg',
@@ -941,23 +766,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Red Checked',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/RedChecked/1K/base.jpg',
@@ -1006,23 +816,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'White Black Striped',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/whiteBlackThreaded/1K/base.jpg',
@@ -1071,23 +866,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'White Tiled',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WhiteTiled/1K/base.jpg',
@@ -1136,23 +916,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Woven Red Fabric',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Wool',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/WovenRed/1K/base.jpg',
@@ -1201,23 +966,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Green Wool',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Wool',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/greenWool/1K/base.jpg',
@@ -1266,23 +1016,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Bull Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/bull_leather/1K/jpeg/base.jpg',
@@ -1331,23 +1066,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Calfskin Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/calfskin_leather/1K/jpeg/base.jpg',
@@ -1396,23 +1116,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Blue Sude Leather',
-        category: 'Blue Sude Leather',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/Materials_01_02_24/MaterialData/sofa/Blue_Suede_leather/base.jpeg',
@@ -1459,90 +1164,60 @@ export const Materials2: CustomMaterial2[] = [
             y: 5
         }
     },
-    {
-        name: 'Claret Faux Leather',
-        category: 'leather&fabric',
-        parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
-        img_ref: '',
-        base: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/base.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/base.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/base.jpg',
-        },
-        normal: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/normal.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/normal.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/normal.jpg',
-        },
-        rough: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/rough.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/rough.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/rough.jpg',
-        },
-        metal: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/metal.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/metal.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/metal.jpg',
-        },
-        Ao: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/ao.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/ao.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/ao.jpg',
-        },
-        height: {
-            oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/height.png',
-            twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/height.jpg',
-            threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/height.jpg',
-        },
-        specular: {
-            oneK: '',
-            twoK: '',
-            threeK: '',
-        },
-        opacity: {
-            oneK: '',
-            twoK: '',
-            threeK: '',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
-    },
+    // {
+    //     name: 'Claret Faux Leather',
+    //     category: 'fabric',
+    //     parnetContainer: 'Leather',
+    //     img_ref: '',
+    //     base: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/base.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/base.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/base.jpg',
+    //     },
+    //     normal: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/normal.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/normal.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/normal.jpg',
+    //     },
+    //     rough: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/rough.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/rough.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/rough.jpg',
+    //     },
+    //     metal: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/metal.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/metal.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/metal.jpg',
+    //     },
+    //     Ao: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/ao.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/ao.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/ao.jpg',
+    //     },
+    //     height: {
+    //         oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/1k/height.png',
+    //         twoK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/2k/height.jpg',
+    //         threeK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/claret_faux/4k/height.jpg',
+    //     },
+    //     specular: {
+    //         oneK: '',
+    //         twoK: '',
+    //         threeK: '',
+    //     },
+    //     opacity: {
+    //         oneK: '',
+    //         twoK: '',
+    //         threeK: '',
+    //     },
+    //     tiling: {
+    //         x: 5,
+    //         y: 5
+    //     }
+    // },
     {
         name: 'Cobblestone Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/Cobblestone/1k/base.jpg',
@@ -1591,23 +1266,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Lagoon Outback Faux Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/lagoon_outback_faux/1k/base.jpg',
@@ -1656,23 +1316,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Saddle Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/saddle/1k/base.jpg',
@@ -1721,23 +1366,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Cranberry Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/zip/cranberry/1k/base.jpg',
@@ -1786,23 +1416,9 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Full Grain Brown',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
+
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/Materials_01_02_24/MaterialData/sofa/Full_Grain_Brown_leather/base.jpeg',
@@ -1851,23 +1467,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Pattern Leather',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Leather',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/Materials_01_02_24/MaterialData/sofa/Pattern_leather/base.jpeg',
@@ -1916,23 +1517,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Cotton Rich Tricotine Weave',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Wool',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/cotton_rich_tricotine_weave/1K/jpeg/base.jpg',
@@ -1981,23 +1567,8 @@ export const Materials2: CustomMaterial2[] = [
     },
     {
         name: 'Jersey Stitch Fabric',
-        category: 'leather&fabric',
+        category: 'fabric',
         parnetContainer: 'Fabric',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [ 
-                'pillow01',
-                'pillow02',
-                'pillow03',
-                'pillow04',
-                'seat01',
-                'seat02',
-                'seat03',
-                'seat04',
-                'seat05',
-                'seat06',
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/jersey_stitch_fabric/1K/jpeg/base.jpg',
@@ -2048,23 +1619,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Bamboo Wood Varnished',
         category: 'wood',
         parnetContainer: 'Wood',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [
-                'wood01' , 
-                'wood02' , 
-                'wood03' , 
-                'wood04' , 
-                'wood05' , 
-                'wood06' , 
-                'wood07' , 
-                'wood08' , 
-                'wood09' ,
-                'WoodFrame01',
-                'WoodFrame02' ,
-                'WoodFrame03'
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/wood/bamboo_wood_varnished/1K/jpeg/base.jpg',
@@ -2115,23 +1669,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Natural Cross Laminated Wood',
         category: 'wood',
         parnetContainer: 'Wood',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [
-                'wood01' , 
-                'wood02' , 
-                'wood03' , 
-                'wood04' , 
-                'wood05' , 
-                'wood06' , 
-                'wood07' , 
-                'wood08' , 
-                'wood09' ,
-                'WoodFrame01',
-                'WoodFrame02' ,
-                'WoodFrame03'
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/wood/pine_wood/1K/jpeg/base.jpg',
@@ -2182,23 +1719,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Abandoned Factory Tiled Floor',
         category: 'wood',
         parnetContainer: 'Wood',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [
-                'wood01' , 
-                'wood02' , 
-                'wood03' , 
-                'wood04' , 
-                'wood05' , 
-                'wood06' , 
-                'wood07' , 
-                'wood08' , 
-                'wood09' ,
-                'WoodFrame01',
-                'WoodFrame02' ,
-                'WoodFrame03'
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/leatherAndfabric/abandoned_factory_tiled_floor/1K/jpeg/base.jpg',
@@ -2249,23 +1769,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Natural Cross Laminated Wood',
         category: 'wood',
         parnetContainer: 'Wood',
-        targetGLBModel: {
-            name: 'Sofa',
-            targetOnly: [
-                'wood01' , 
-                'wood02' , 
-                'wood03' , 
-                'wood04' , 
-                'wood05' , 
-                'wood06' , 
-                'wood07' , 
-                'wood08' , 
-                'wood09' ,
-                'WoodFrame01',
-                'WoodFrame02' ,
-                'WoodFrame03'
-            ],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/wood/natural_cross_laminated_wood/1K/jpeg/base.jpg',
@@ -2316,10 +1819,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Steel',
         category: 'metal',
         parnetContainer: 'Metal',
-        targetGLBModel: {
-            name: 'Coffee_Table',
-            targetOnly: ['Box002', 'Box003', 'Circle001'],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/steel/1K/jpeg/base.jpg',
@@ -2370,10 +1869,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Copper',
         category: 'metal',
         parnetContainer: 'Metal',
-        targetGLBModel: {
-            name: 'Coffee_Table',
-            targetOnly: ['Box002', 'Box003', 'Circle001'],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/base.jpg',
@@ -2424,10 +1919,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Plane Glass',
         category: 'Glass',
         parnetContainer: 'Glass',
-        targetGLBModel: {
-            name: 'Coffee_Table',
-            targetOnly: ['Rectangle005'],
-        },
         img_ref: '',
         base: {
             oneK: 'https://d2629xvaofl3d3.cloudfront.net/materials/materials/metal/copper/1K/jpeg/base.jpg',
@@ -2478,10 +1969,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Pattern',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/PatternGlass/base.jpg',
@@ -2532,10 +2019,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Rohmbus Grilled',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Window_01/base.jpg',
@@ -2586,10 +2069,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Vintage Glass',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Vintage/base.jpg',
@@ -2640,10 +2119,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Grilled',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Grilled/base.jpg',
@@ -2694,10 +2169,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Frosted',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Frosted/base.jpg',
@@ -2748,10 +2219,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Blocks 2',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Blocks_02/base.jpg',
@@ -2802,10 +2269,6 @@ export const Materials2: CustomMaterial2[] = [
         name: 'Glass Window 02',
         category: 'GlassPattern',
         parnetContainer: 'GlassPattern',
-        targetGLBModel: {
-            name: 'Wood_Table',
-            targetOnly: ['glass'],
-        },
         img_ref: '',
         base: {
             oneK: 'materials/Glass_Window_02/base.jpg',

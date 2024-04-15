@@ -38,45 +38,37 @@ export default class CreateMaterial {
 
     createMaterial = async (name: string, idx: number, x: number, y: number):Promise<_.MeshPhysicalMaterial> => {
         return new Promise(async (res) => {
-            const targetModel = Materials2[idx].targetGLBModel;
-            const glb: GLTF = this.experience.resources.loadedModels.get(targetModel.name) as GLTF;
+            const sofa_group = this.experience.resources.sofa_group ; 
 
             const material = new _.MeshPhysicalMaterial();
             material.envMap = this.experience.scene.environment ; 
             material.envMapIntensity = .1 ;
             material.side = _.FrontSide ;  
             
-            if(Materials2[idx].category == 'Glass' || Materials2[idx].category == 'GlassPattern'){
+            const ele = Materials2[idx];
+
+            if(ele.category == 'Glass' || ele.category == 'GlassPattern'){
                 material.transmission = 1 ; 
                 material.roughness = 0 ; 
                 material.envMapIntensity = 1 ; 
                 material.side = _.DoubleSide ;  
             }
 
-            glb.scene.traverse((e) => {
-                if( targetModel.targetOnly.length > 0 ){
-                    if( targetModel.targetOnly.includes( e.name ) ){
-                        if( e instanceof _.Mesh ){
-                            e.material = material ; 
-                        }
-                    }
-                }
-                else{
-                    if( e instanceof _.Mesh ){
-                        e.material = material ; 
+            sofa_group.traverse(elem=>{
+                if( elem instanceof _.Mesh ){
+                    if( elem.name.substring( 0 , 4 ) === ele.category.substring(0,4) ){
+                        elem.material = material ; 
                     }
                 }
             })
 
             const textures = this.loadedTextures.get(name);
-            console.log(textures);
 
             if (textures !== undefined) {
                 this.setTextureParams(textures.base.onek, { x, y });
                 material.map = textures.base.onek;
             }
 
-            const ele = Materials2[idx];
 
             if( ele.normal.oneK !== '' ){
                 if( textures && textures.normal && textures.normal.onek == null ){
@@ -184,8 +176,8 @@ export default class CreateMaterial {
                 this.textureResolution = 'twok';
                 oneK.checked = false;
                 threeK.checked = false;
-            }
-        })
+        }
+    })
 
         threeK.addEventListener('input', () => {
             if (threeK.checked) {

@@ -12,7 +12,12 @@ export default class DragAndDrop {
     }
 
     handleDragAndDrop() {
-        const images = document.getElementsByClassName('img-thumbnail') ; 
+        this.handleMaterialDragAndDrop() ; 
+        this.handleModelDragAndDrop() ; 
+    }
+
+    handleMaterialDragAndDrop(){
+        const images = document.getElementsByClassName('material-thubnail') ; 
         Array.from(images).map((elem)=>{
             elem.addEventListener('dragend' , ()=>{
                 const idx = elem.getAttribute('uid') ; 
@@ -20,5 +25,17 @@ export default class DragAndDrop {
             })
         })
     }
+
+    handleModelDragAndDrop(){
+        const modelImages = document.getElementsByClassName('model-thumbnail') ; 
+        Array.from(modelImages).map((elem)=>{
+            elem.addEventListener('dragend' , ()=>{
+                const idx = elem.getAttribute('uid') ; 
+                this.experience.resources.loadGltf(Number(idx)) ; 
+            })
+        })
+    }
+
+
 
 }
