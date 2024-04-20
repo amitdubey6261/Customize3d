@@ -1,7 +1,7 @@
 import * as _ from 'three';
 import Experience from './Experience';
 import LoadModels, { TextureContainer, loadersType } from './LoadModels';
-import { GLTF, Reflector } from 'three/examples/jsm/Addons.js';
+import {  Reflector } from 'three/examples/jsm/Addons.js';
 import { Materials2 } from '../Utils/Assets';
 
 export default class CreateMaterial {

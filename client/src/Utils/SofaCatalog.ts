@@ -39,4 +39,104 @@ export const sofa_models : sofa_data[] = [
         ],
         group : 'sofa' , 
     } , 
+    {
+        name : 'create&barrel01' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb01.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_01.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel02' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb02.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_02.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel04' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb04.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_04.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel05' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb05.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_05.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel06' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb06.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_06.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel07' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb07.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_07.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel08' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb08.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_08.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel09' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb09.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_09.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel10' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb10.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_10.glb',
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'create&barrel11' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/models/Sofa_Models/Sofa_Images/cb11.png' , 
+        model_path : [
+            '/models/Create&Barrel/crate&barrel_Models/model_11.glb',
+        ],
+        group : 'sofa' , 
+    } , 
 ]

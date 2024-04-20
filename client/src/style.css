@@ -172,3 +172,8 @@
 .form-label{
   color: black;
 }
+
+
+img{
+  aspect-ratio: 3/2;
+}
