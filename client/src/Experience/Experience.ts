@@ -10,6 +10,7 @@ import PostProcessing from './PostProcessing';
 import HandleHTML from './HandleHtml';
 import CreateMaterial from './CreateMaterial';
 import AdvancedTab from './Advanced';
+import DragAndDrop from './DragAndDrop';
 
 export default class Experience {
     static instance: Experience;
@@ -28,6 +29,8 @@ export default class Experience {
     handleHTML : HandleHTML ; 
     customMaterial : CreateMaterial ; 
     adnavanced : AdvancedTab ; 
+    DragAndDrop : DragAndDrop ; 
+    textureResolution : 'onek' | 'twok' | 'fourk' ; 
 
     constructor(canvas?: HTMLCanvasElement) {
         if (Experience.instance == undefined) {
@@ -35,6 +38,7 @@ export default class Experience {
                 Experience.instance = this ;
                 this.data = data ; 
                 this.hdridata = hdridata ; 
+                this.textureResolution = 'onek' ; 
                 
                 this.time = new Time();
                 this.canvas = canvas;
@@ -48,14 +52,11 @@ export default class Experience {
                 this.customMaterial = new CreateMaterial() ; 
                 this.world = new World() ; 
                 this.handleHTML = new HandleHTML() ;
-                setTimeout(()=>{
-                    this.adnavanced = new AdvancedTab() ;
-                    const elem = document.querySelector('.spinner') as HTMLInputElement ; 
-                    const elem2 = document.querySelector('.overlay') as HTMLInputElement ; 
-                    elem.style.display = 'none' ; 
-                    elem2.style.display = 'none'
-                } , 5000 ) ; 
+                this.DragAndDrop = new DragAndDrop() ; 
                 
+                setTimeout(()=>{
+                    this.adnavanced = new AdvancedTab() ; 
+                } , 5000 ) ; 
                 
                 this.time.on('update', () => {
                     this.update();

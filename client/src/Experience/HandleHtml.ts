@@ -35,7 +35,7 @@ export default class HandleHTML {
         Materials2.forEach((elem, idx) => {
 
             const htmlString = `<div class="">
-            <img src=${elem.base.oneK}
+            <img src=${elem.base[this.experience.textureResolution]}
               class="img-thumbnail material-thubnail"
               uid=${idx}
             alt="Loading..">
@@ -57,7 +57,7 @@ export default class HandleHTML {
               class="img-thumbnail model-thumbnail"
               uid=${idx}
             alt="Loading..">
-            <p>${elem.name}</p>
+            <lp>${elem.name}</lp>
           </div> `
 
           

@@ -9,9 +9,6 @@ export default class DragAndDrop {
     constructor() {
         this.experience = new Experience();
         this.customMaterial = this.experience.customMaterial; 
-    }
-
-    handleDragAndDrop() {
         this.handleMaterialDragAndDrop() ; 
         this.handleModelDragAndDrop() ; 
     }
@@ -35,7 +32,4 @@ export default class DragAndDrop {
             })
         })
     }
-
-
-
 }

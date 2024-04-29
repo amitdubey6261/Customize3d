@@ -122,17 +122,6 @@
   display: none;
 }
 
-.overlay{
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(2, 2, 2, 0.818);
-  z-index: 400;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-}
-
 .image{
   width: 200px;
   height: 200px;

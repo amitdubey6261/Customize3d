@@ -14,14 +14,14 @@ export type loadersType = {
 }
 
 export type TextureContainer = {
-    base: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    normal: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    rough: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    height: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    specular: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    opacity: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    metal: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
-    Ao: { onek: _.Texture | null, twok: _.Texture | null, threek: _.Texture | null },
+    base: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    normal: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    rough: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    height: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    specular: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    opacity: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    metal: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    Ao: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
 }
 
 export default class LoadModels {
@@ -130,17 +130,17 @@ export default class LoadModels {
                 const promises = Materials2.map(async (e) => {
 
                     if (category == e.parnetContainer) {
-                        const baseTexture = await this.loaders.textureloader.loadAsync(e.base.oneK);
+                        const baseTexture = await this.loaders.textureloader.loadAsync(e.base.onek);
 
                         const loadedTex: TextureContainer = {
-                            base: { onek: baseTexture, twok: null, threek: null },
-                            normal: { onek: null, twok: null, threek: null },
-                            rough: { onek: null, twok: null, threek: null },
-                            metal: { onek: null, twok: null, threek: null },
-                            Ao: { onek: null, twok: null, threek: null },
-                            specular: { onek: null, twok: null, threek: null },
-                            opacity: { onek: null, twok: null, threek: null },
-                            height: { onek: null, twok: null, threek: null },
+                            base: { onek: baseTexture, twok: null, fourk: null },
+                            normal: { onek: null, twok: null, fourk: null },
+                            rough: { onek: null, twok: null, fourk: null },
+                            metal: { onek: null, twok: null, fourk: null },
+                            Ao: { onek: null, twok: null, fourk: null },
+                            specular: { onek: null, twok: null, fourk: null },
+                            opacity: { onek: null, twok: null, fourk: null },
+                            height: { onek: null, twok: null, fourk: null },
                         }
 
                         this.loadedTextures.set(e.name, loadedTex);

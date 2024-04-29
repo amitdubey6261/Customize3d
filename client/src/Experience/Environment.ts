@@ -1,14 +1,19 @@
 import * as _ from 'three';
 import { GroundProjectedSkybox } from "./GroundProjectedSkybox.js";
 import Experience from './Experience';
+import { createSubsurfaceMaterial, replaceMaterial } from './CustomMaterial.js';
+import { GLTF } from 'three/examples/jsm/Addons.js';
 
 export default class Environment {
     experince: Experience;
     gps: GroundProjectedSkybox;
     loadedHDRIS: Map<any, any>;
+    spinner : HTMLElement ; 
+    loadedmodels : Map<string , GLTF> ; 
 
     constructor() {
         this.experince = new Experience();
+        this.spinner = document.querySelector('.spinner') as HTMLInputElement ;
         this.createEnv();
         this.sunlight() ; 
         this.groundShadow() ; 
@@ -26,6 +31,11 @@ export default class Environment {
         this.experince.scene.environment = hdridata.hdri;
         // this.experince.scene.add(this.gps);
         this.dayNight() ; 
+        this.loadedmodels = await this.experince.resources.loadglTF() ;
+        const subsurfaceMaterial = createSubsurfaceMaterial() ; 
+        const lamp = this.loadedmodels.get('Floor_Lamp') as GLTF ; 
+        replaceMaterial( lamp.scene , subsurfaceMaterial ) ;  
+        this.spinner.style.display = 'none' ; 
     }
 
     sunlight() {

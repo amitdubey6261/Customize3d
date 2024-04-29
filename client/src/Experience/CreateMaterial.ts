@@ -11,7 +11,8 @@ export default class CreateMaterial {
     spinner: HTMLElement;
     resources: LoadModels;
     loadedTextures: Map<string, TextureContainer>
-    textureResolution: 'onek' | 'twok' | 'threek';
+    textureResolution: 'onek' | 'twok' | 'fourk';
+    refresh = false ; 
 
     constructor() {
         this.textureResolution = 'onek';
@@ -31,9 +32,11 @@ export default class CreateMaterial {
     }
 
     async ApplyMaterial(idx: number) {
+        this.spinner.style.display = 'block'
         const name = Materials2[idx].name;
         const material = await this.createMaterial(name, idx, Materials2[idx].tiling.x, Materials2[idx].tiling.y);
         this.experience.adnavanced.adjustMaterialTiling(material) ; 
+        this.spinner.style.display = 'none'
     }
 
     createMaterial = async (name: string, idx: number, x: number, y: number):Promise<_.MeshPhysicalMaterial> => {
@@ -65,90 +68,105 @@ export default class CreateMaterial {
             const textures = this.loadedTextures.get(name);
 
             if (textures !== undefined) {
-                this.setTextureParams(textures.base.onek, { x, y });
-                material.map = textures.base.onek;
+                this.setTextureParams(textures.base[this.experience.textureResolution], { x, y });
+                material.map = textures.base[this.experience.textureResolution];
             }
 
+            if(this.refresh){
+                if( ele.base[this.experience.textureResolution] !== '' ){
+                    if( textures && textures.base && textures.base[this.experience.textureResolution] == null ){
+                        const bmap = await this.loaders.textureloader.loadAsync(ele.base[this.experience.textureResolution]) ; 
+                        this.setTextureParams(bmap, { x, y });
+                        textures.base[this.experience.textureResolution] = bmap ; 
+                        material.map = bmap ;
+                    }
+                    else{
+                        const nmap = textures!.normal[this.experience.textureResolution] ; 
+                        this.setTextureParams(nmap, { x, y });
+                        material.normalMap = nmap 
+                    }
+                }
+            }
 
-            if( ele.normal.oneK !== '' ){
-                if( textures && textures.normal && textures.normal.onek == null ){
-                    const nmap = await this.loaders.textureloader.loadAsync(ele.normal.oneK) ; 
+            if( ele.normal[this.experience.textureResolution] !== '' ){
+                if( textures && textures.normal && textures.normal[this.experience.textureResolution] == null ){
+                    const nmap = await this.loaders.textureloader.loadAsync(ele.normal[this.experience.textureResolution]) ; 
                     this.setTextureParams(nmap, { x, y });
-                    textures.normal.onek = nmap ; 
+                    textures.normal[this.experience.textureResolution] = nmap ; 
                     material.normalMap = nmap 
                 }
                 else{
-                    const nmap = textures!.normal.onek ; 
+                    const nmap = textures!.normal[this.experience.textureResolution] ; 
                     this.setTextureParams(nmap, { x, y });
                     material.normalMap = nmap 
                 }
             }
 
-            if( ele.rough.oneK !== '' ){
-                if( textures && textures.rough && textures.rough.onek == null ){
-                    const rmap = await this.loaders.textureloader.loadAsync(ele.rough.oneK) ; 
+            if( ele.rough[this.experience.textureResolution] !== '' ){
+                if( textures && textures.rough && textures.rough[this.experience.textureResolution] == null ){
+                    const rmap = await this.loaders.textureloader.loadAsync(ele.rough[this.experience.textureResolution]) ; 
                     this.setTextureParams(rmap, { x, y });
-                    textures.rough.onek = rmap ; 
+                    textures.rough[this.experience.textureResolution] = rmap ; 
                     material.roughnessMap = rmap ;
                 }
                 else{
-                    const rmap = textures!.rough.onek ; 
+                    const rmap = textures!.rough[this.experience.textureResolution] ; 
                     this.setTextureParams(rmap, { x, y });
                     material.roughnessMap = rmap ;  
                 }
             }
 
-            if( ele.height.oneK !== '' ){
-                if( textures && textures.height && textures.height.onek == null ){
-                    const hmap = await this.loaders.textureloader.loadAsync(ele.height.oneK) ; 
+            if( ele.height[this.experience.textureResolution] !== '' ){
+                if( textures && textures.height && textures.height[this.experience.textureResolution] == null ){
+                    const hmap = await this.loaders.textureloader.loadAsync(ele.height[this.experience.textureResolution]) ; 
                     this.setTextureParams(hmap, { x, y });
-                    textures.height.onek = hmap ; 
+                    textures.height[this.experience.textureResolution] = hmap ; 
                     material.bumpMap = hmap ;
                 }
                 else{
-                    const hmap = textures!.height.onek ; 
+                    const hmap = textures!.height[this.experience.textureResolution] ; 
                     this.setTextureParams(hmap, { x, y });
                     material.bumpMap = hmap ;  
                 }
             }
 
-            if (ele.Ao.oneK !== '') {
-                if( textures && textures.Ao && textures.Ao.onek == null ){
-                    const AoMap = await this.loaders.textureloader.loadAsync(ele.Ao.oneK);
+            if (ele.Ao[this.experience.textureResolution] !== '') {
+                if( textures && textures.Ao && textures.Ao[this.experience.textureResolution] == null ){
+                    const AoMap = await this.loaders.textureloader.loadAsync(ele.Ao[this.experience.textureResolution]);
                     this.setTextureParams(AoMap, { x, y });
-                    textures.Ao.onek = AoMap ; 
+                    textures.Ao[this.experience.textureResolution] = AoMap ; 
                     material.aoMap = AoMap;
                 }
                 else{
-                    const AoMap = textures!.Ao.onek ; 
+                    const AoMap = textures!.Ao[this.experience.textureResolution] ; 
                     this.setTextureParams(AoMap, { x, y });
                     material.aoMap = AoMap;
                 }
             }
             
-            if (ele.specular.oneK !== '') {
-                if( textures && textures.specular && textures.specular.onek == null ){
-                    const sMap = await this.loaders.textureloader.loadAsync(ele.specular.oneK);
+            if (ele.specular[this.experience.textureResolution] !== '') {
+                if( textures && textures.specular && textures.specular[this.experience.textureResolution] == null ){
+                    const sMap = await this.loaders.textureloader.loadAsync(ele.specular[this.experience.textureResolution]);
                     this.setTextureParams(sMap, { x, y });
-                    textures.Ao.onek = sMap ; 
+                    textures.Ao[this.experience.textureResolution] = sMap ; 
                     material.aoMap = sMap;
                 }
                 else{
-                    const sMap = textures!.specular.onek ; 
+                    const sMap = textures!.specular[this.experience.textureResolution] ; 
                     this.setTextureParams(sMap, { x, y });
                     material.specularColorMap = sMap;
                 }
             }
 
-            if (ele.opacity.oneK !== '') {
-                if( textures && textures.opacity && textures.opacity.onek == null ){
-                    const oMap = await this.loaders.textureloader.loadAsync(ele.opacity.oneK);
+            if (ele.opacity[this.experience.textureResolution] !== '') {
+                if( textures && textures.opacity && textures.opacity[this.experience.textureResolution] == null ){
+                    const oMap = await this.loaders.textureloader.loadAsync(ele.opacity[this.experience.textureResolution]);
                     this.setTextureParams(oMap, { x, y });
-                    textures.Ao.onek = oMap ; 
+                    textures.Ao[this.experience.textureResolution] = oMap ; 
                     material.aoMap = oMap;
                 }
                 else{
-                    const oMap = textures!.opacity.onek ; 
+                    const oMap = textures!.opacity[this.experience.textureResolution] ; 
                     this.setTextureParams(oMap, { x, y });
                     material.transmissionMap = oMap;
                 }
@@ -159,32 +177,12 @@ export default class CreateMaterial {
     }
 
     HandleTextureResolution() {
-        const oneK = document.querySelector('#oneK') as HTMLInputElement;
-        const twoK = document.querySelector('#twoK') as HTMLInputElement;
-        const threeK = document.querySelector('#threeK') as HTMLInputElement;
-
-        oneK.addEventListener('input', () => {
-            if (oneK.checked) {
-                this.textureResolution = 'onek';
-                twoK.checked = false;
-                threeK.checked = false;
-            }
-        })
-
-        twoK.addEventListener('input', () => {
-            if (twoK.checked) {
-                this.textureResolution = 'twok';
-                oneK.checked = false;
-                threeK.checked = false;
-        }
-    })
-
-        threeK.addEventListener('input', () => {
-            if (threeK.checked) {
-                this.textureResolution = 'threek';
-                oneK.checked = false;
-                twoK.checked = false;
-            }
+        const elem = document.querySelector('.form-select') as HTMLSelectElement ;
+        elem.addEventListener('change' , ()=>{
+            //@ts-ignore
+            this.experience.textureResolution = elem.value ;
+            this.experience.handleHTML.setPreLoading()
+            this.refresh = true ; 
         })
     }
 
