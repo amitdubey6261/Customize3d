@@ -9,40 +9,45 @@ export type datatype = {
 export const data: datatype[] = [
     {
         name: 'Wall',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Wall.glb',
-        group : null,
-    },
-    {
-        name: 'window',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Window.glb',
-        group : null,
-
-    },
-    {
-        name: 'Wood_Table',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Wood_Table.glb',
-        group : 'table',
-    },
-    {
-        name: 'Floor',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Floor.glb',
+        path: '/models/Room02.glb',
         group : null,
     },
     {
         name: 'Sofa',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Wood_Sofa.glb',
+        path: '/models/Round_Sofa.glb',
         group : 'sofa',
     },
-    {
-        name: 'Frames',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/models/Frames.glb',
-        group : null,
-    },
-    {
-        name: 'Floor_Lamp',
-        path: 'https://d2629xvaofl3d3.cloudfront.net/Floor_Lamp.glb',
-        group : null,
-    }
+    // {
+    //     name: 'window',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Window.glb',
+    //     group : null,
+
+    // },
+    // {    
+    //     name: 'Wood_Table',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Wood_Table.glb',
+    //     group : 'table',
+    // },
+    // {
+    //     name: 'Floor',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Floor.glb',
+    //     group : null,
+    // },
+    // {
+    //     name: 'Sofa',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Wood_Sofa.glb',
+    //     group : 'sofa',
+    // },
+    // {
+    //     name: 'Frames',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Frames.glb',
+    //     group : null,
+    // },
+    // {
+    //     name: 'Floor_Lamp',
+    //     path: 'https://d2629xvaofl3d3.cloudfront.net/Floor_Lamp.glb',
+    //     group : null,
+    // }
 ]
 
 export type hdritype = {

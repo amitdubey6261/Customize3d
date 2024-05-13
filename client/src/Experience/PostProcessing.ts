@@ -1,5 +1,6 @@
 import { EffectComposer } from "postprocessing";
 import { defaultSSROptions  } from 'screen-space-reflections';
+import { SSAOPass } from 'three/examples/jsm/postprocessing/SSAOPass.js';
 import Experience from "./Experience";
 import * as _ from 'three';
 
@@ -90,6 +91,13 @@ export default class PPS {
             }
         }
 
+        // this.setSSAO() ; 
+
+    }
+
+    setSSAO(){
+        const ssaoPass = new SSAOPass( this.scene , this.experience.camera.camera , window.innerWidth , window.innerHeight );
+        this.composer.addPass( ssaoPass );
     }
 }
 
