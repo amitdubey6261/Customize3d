@@ -10,7 +10,7 @@ export default class Camera{
     constructor(){
         this.experience = new Experience() ; 
         this.camera = new _.PerspectiveCamera(50 , window.innerWidth/window.innerHeight , .1 , 200 ) ; 
-        this.camera.position.set( -4,4,4 ) ; 
+        this.camera.position.set(  0 , .1 , -.3  ) ; 
         this.canvas = this.experience.canvas as HTMLElement ; 
     }
 
@@ -19,10 +19,10 @@ export default class Camera{
         this.controls.enableDamping = true 
         this.controls.dampingFactor = 0.05
         this.controls.minDistance = .1
-        // this.controls.maxDistance = 10
+        this.controls.maxDistance = 3.2
         this.controls.maxPolarAngle = Math.PI / 2
-        this.controls.enablePan = true ; 
-        this.controls.target.set(0, 0.5, 0)
+        this.controls.enablePan = false ; 
+        this.controls.target.set(0, 1.5 , -3)
     }
 
     update(){
