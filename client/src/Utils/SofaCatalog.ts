@@ -12,7 +12,7 @@ export const sofa_models : sofa_data[] = [
         name : 'Rounded Sofa' , 
         model_ref : '' , 
         parent_container : 'Model-continer',  
-        model_img : 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Sofa_Images/01.png' , 
+        model_img : '/imgs/01.png' , 
         model_path : [
             '/models/Round_Sofa.glb'
         ],
@@ -22,9 +22,29 @@ export const sofa_models : sofa_data[] = [
         name : 'Rectangular Sofa' , 
         model_ref : '' , 
         parent_container : 'Model-continer',
-        model_img : 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Sofa_Images/01.png' , 
+        model_img : '/imgs/02.png' , 
         model_path : [
             '/models/Sectional_Sofa.glb'
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'Table Sofa' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/imgs/03.png' , 
+        model_path : [
+            '/models/sofa_table_scene.glb'
+        ],
+        group : 'sofa' , 
+    } , 
+    {
+        name : 'Table Sofa 02' , 
+        model_ref : '' , 
+        parent_container : 'Model-continer',
+        model_img : '/imgs/04.png' , 
+        model_path : [
+            '/models/sofa_table_scene02.glb'
         ],
         group : 'sofa' , 
     } , 
