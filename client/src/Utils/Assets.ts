@@ -3,51 +3,35 @@ import * as _ from 'three';
 export type datatype = {
     name: string,
     path: string,
-    group : 'sofa' | 'table' | null , 
+    group: 'sofa' | 'table' | null,
 }
 
 export const data: datatype[] = [
     {
-        name: 'Wall',
-        path: '/models/Room02.glb',
-        group : null,
+        name: 'Room',
+        path: 'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/zip/Room3.glb',
+        group: null,
+    },
+    {
+        name: 'Room',
+        path: 'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/zip/Accessories3.glb',
+        group: null,
+    },
+    {
+        name: 'Room',
+        path: 'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/zip/Compressed_Garden.glb',
+        group: null,
+    },
+    {
+        name: 'Lamp',
+        path: 'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/zip/Floor_Lamp.glb',
+        group: null,
     },
     {
         name: 'Sofa',
-        path: '/models/Round_Sofa.glb',
-        group : 'sofa',
+        path: 'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/Compressed_Sofa_Set2.glb',
+        group: 'sofa',
     },
-    // {
-    //     name: 'window',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Window.glb',
-    //     group : null,
-
-    // },
-    // {    
-    //     name: 'Wood_Table',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Wood_Table.glb',
-    //     group : 'table',
-    // },
-    // {
-    //     name: 'Floor',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Floor.glb',
-    //     group : null,
-    // },
-    // {
-    //     name: 'Sofa',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Wood_Sofa.glb',
-    //     group : 'sofa',
-    // },
-    // {
-    //     name: 'Frames',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/models/Frames.glb',
-    //     group : null,
-    // },
-    // {
-    //     name: 'Floor_Lamp',
-    //     path: 'https://d2629xvaofl3d3.cloudfront.net/Floor_Lamp.glb',
-    //     group : null,
-    // }
 ]
 
 export type hdritype = {
@@ -77,43 +61,21 @@ export type CustomMaterial2 = {
     parnetContainer: string,
     base: {
         onek: string,
-        twok: string,
-        fourk: string,
     },
     normal: {
         onek: string,
-        twok: string,
-        fourk: string,
     },
     metal: {
         onek: string,
-        twok: string,
-        fourk: string,
     },
     rough: {
         onek: string,
-        twok: string,
-        fourk: string,
     },
     Ao: {
         onek: string,
-        twok: string,
-        fourk: string,
-    },
-    opacity: {
-        onek: string,
-        twok: string,
-        fourk: string,
-    },
-    specular: {
-        onek: string,
-        twok: string,
-        fourk: string,
     },
     height: {
         onek: string,
-        twok: string,
-        fourk: string,
     },
     tiling: {
         x: number,
@@ -121,405 +83,288 @@ export type CustomMaterial2 = {
     }
 }
 
-export const Materials2: CustomMaterial2[] = [
+export const MaterialDir = [
     {
-        name: 'Leather01',
-        category: 'fabric',
-        parnetContainer: 'Leather',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/2k/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/4k/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_01/1k/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Alligator Leather",
+        category: "fabric",
+        parnetContainer: "leathers",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/01.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/AlligatorLeather/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 5, y: 5 }
     },
     {
-        name: '2',
-        category: 'fabric',
-        parnetContainer: 'Leather',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_02/1k/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Rough Leather",
+        category: "fabric",
+        parnetContainer: "leathers",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/02.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/RoughLeather/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 5, y: 5 }
     },
     {
-        name: '3',
-        category: 'fabric',
-        parnetContainer: 'Leather',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_03/1k/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Sheep Leather",
+        category: "fabric",
+        parnetContainer: "leathers",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/03.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/SheepLeather/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
     {
-        name: '4',
-        category: 'fabric',
-        parnetContainer: 'Leather',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/LeatherMaterials/Leather_04/1k/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Taurillion Leather",
+        category: "fabric",
+        parnetContainer: "leathers",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/04.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/TaurillionLeather/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
     {
-        name: 'Fabric01',
-        category: 'fabric',
-        parnetContainer: 'Fabric',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric01/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Denim Fabric",
+        category: "fabric",
+        parnetContainer: "fabrics",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/05.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/DenimFabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
     {
-        name: 'Fabric02',
-        category: 'fabric',
-        parnetContainer: 'Fabric',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric02/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Gabardine Fabric",
+        category: "fabric",
+        parnetContainer: "fabrics",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/06.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Gabardinefabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
     {
-        name: 'Fabric03',
-        category: 'fabric',
-        parnetContainer: 'Fabric',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric03/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Ripstop Fabric",
+        category: "fabric",
+        parnetContainer: "fabrics",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/07.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/RipstopFabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
     {
-        name: 'Fabric04',
-        category: 'fabric',
-        parnetContainer: 'Fabric',
-        img_ref: '',
-        base: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/base.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/base.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/base.png',
-        },
-        normal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/normal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/normal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/normal.png',
-        },
-        rough: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/rough.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/rough.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/rough.png',
-        },
-        metal: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/metal.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/metal.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/metal.png',
-        },
-        Ao: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/ao.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/ao.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/ao.png',
-        },
-        height: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/height.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/height.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/height.png',
-        },
-        specular: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/specular.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/specular.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/specular.png',
-        },
-        opacity: {
-            onek: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/opacity.png',
-            twok: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/opacity.png',
-            fourk: 'https://d2629xvaofl3d3.cloudfront.net/materials/Fabric04/opacity.png',
-        },
-        tiling: {
-            x: 5,
-            y: 5
-        }
+        name: "Synthetic Wool",
+        category: "fabric",
+        parnetContainer: "fabrics",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/08.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/SynteticWool/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Bamboo Wood",
+        category: "wood",
+        parnetContainer: "wood",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/09.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/BambooWood/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Beech Wood",
+        category: "wood",
+        parnetContainer: "wood",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/10.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/BeechWood/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Teak Wood",
+        category: "wood",
+        parnetContainer: "wood",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/11.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/TeakWood/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Wenge Wood",
+        category: "wood",
+        parnetContainer: "wood",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/12.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/WengeWood/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Brushed Metal",
+        category: "metals",
+        parnetContainer: "metals",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/20.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/cross_brushed_metal/Webp/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Iron Forged",
+        category: "metals",
+        parnetContainer: "metals",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/21.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/IronForged/Webp/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Stylized Copper",
+        category: "metals",
+        parnetContainer: "metals",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/22.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/stylized_copper/Webp/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Gold",
+        category: "metals",
+        parnetContainer: "metals",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/23.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/Gold/Webp/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Denim Fabric",
+        category: "pfab",
+        parnetContainer: "pillow",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/05.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/DenimFabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Gabardine Fabric",
+        category: "pfab",
+        parnetContainer: "pillow",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/06.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Gabardinefabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Ripstop Fabric",
+        category: "pfab",
+        parnetContainer: "pillow",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/07.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/RipstopFabric/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
+    },
+    {
+        name: "Synthetic Wool",
+        category: "pfab",
+        parnetContainer: "pillow",
+        img_ref: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/Thumbnails/08.webp",
+        base_path: "https://d2629xvaofl3d3.cloudfront.net/c3d_v2/imgs/v2/SynteticWool/",
+        textures: [
+            "base.webp",
+            "normal.webp",
+            "rough.webp",
+            "height.webp",
+        ],
+        tile: { x: 10, y: 10 }
     },
 ]
+
+
+export const BaseTex = new Array(MaterialDir.length).fill(null); 

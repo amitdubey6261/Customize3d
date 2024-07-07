@@ -5,12 +5,10 @@ import Time from '../Utils/Time';
 import Environment from './Environment';
 import { data, datatype, hdridata, hdritype } from '../Utils/Assets';
 import LoadModels from './LoadModels';
-import World from './World';
-import PostProcessing from './PostProcessing';
 import HandleHTML from './HandleHtml';
 import CreateMaterial from './CreateMaterial';
-import AdvancedTab from './Advanced';
 import DragAndDrop from './DragAndDrop';
+import GUI from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
 export default class Experience {
     static instance: Experience;
@@ -24,13 +22,13 @@ export default class Experience {
     data : datatype[] ; 
     hdridata : hdritype[] ; 
     resources : LoadModels ; 
-    world : World ; 
-    postprocessing : PostProcessing ;
     handleHTML : HandleHTML ; 
     customMaterial : CreateMaterial ; 
-    adnavanced : AdvancedTab ; 
+    // adnavanced : AdvancedTab ; 
     DragAndDrop : DragAndDrop ; 
     textureResolution : 'onek' | 'twok' | 'fourk' ; 
+    gui : GUI ; 
+    propmt : HTMLElement ; 
 
     constructor(canvas?: HTMLCanvasElement) {
         if (Experience.instance == undefined) {
@@ -38,8 +36,10 @@ export default class Experience {
                 Experience.instance = this ;
                 this.data = data ; 
                 this.hdridata = hdridata ; 
-                this.textureResolution = 'onek' ; 
+                this.textureResolution = 'onek' ;
+                this.propmt = document.querySelector('.prompt') as HTMLElement; 
                 
+                this.gui = new GUI() ; 
                 this.time = new Time();
                 this.canvas = canvas;
                 this.scene = new _.Scene;
@@ -48,15 +48,9 @@ export default class Experience {
                 this.renderer = new Render();
                 this.resources = new LoadModels() ; 
                 this.env = new Environment();
-                // this.postprocessing = new PostProcessing() ; 
                 this.customMaterial = new CreateMaterial() ; 
-                this.world = new World() ; 
                 this.handleHTML = new HandleHTML() ;
                 this.DragAndDrop = new DragAndDrop() ; 
-                
-                setTimeout(()=>{
-                    this.adnavanced = new AdvancedTab() ; 
-                } , 5000 ) ; 
                 
                 this.time.on('update', () => {
                     this.update();
@@ -64,10 +58,9 @@ export default class Experience {
             }
         }
         else {
-            return Experience.instance;
+            return Experience.instance
         }
     }
-
     update() {
         if (this.renderer)
             this.renderer.render();

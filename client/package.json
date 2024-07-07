@@ -11,12 +11,15 @@
   "devDependencies": {
     "@types/events": "^3.0.3",
     "@types/three": "^0.163.0",
+    "@types/toastify-js": "^1.12.3",
     "typescript": "^5.4.4",
     "vite": "^5.2.8"
   },
   "dependencies": {
     "@pmndrs/vanilla": "^1.15.1",
+    "@tweenjs/tween.js": "^23.1.2",
     "events": "^3.3.0",
+    "n8ao": "^1.8.2",
     "postprocessing": "^6.35.3",
     "realism-effects": "^1.1.2",
     "screen-space-reflections": "^2.5.0",

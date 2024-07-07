@@ -2,8 +2,11 @@ import * as _ from 'three';
 import { TextureLoader } from "three";
 import { DRACOLoader, EXRLoader, GLTF, GLTFLoader, RGBELoader } from "three/examples/jsm/Addons.js";
 import Experience from "./Experience";
-import { Materials2, data, datatype, hdritype } from '../Utils/Assets';
+import { BaseTex, MaterialDir, hdritype } from '../Utils/Assets';
 import { sofa_models } from '../Utils/SofaCatalog';
+import { createSubsurfaceMaterial } from './CustomMaterial';
+
+// const spinner = document.querySelector('.spinner') as HTMLElement;
 
 export type loadersType = {
     glbloader: GLTFLoader,
@@ -14,14 +17,14 @@ export type loadersType = {
 }
 
 export type TextureContainer = {
-    base: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    normal: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    rough: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    height: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    specular: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    opacity: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    metal: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
-    Ao: { onek: _.Texture | null, twok: _.Texture | null, fourk: _.Texture | null },
+    base: { onek: _.Texture | null },
+    normal: { onek: _.Texture | null },
+    rough: { onek: _.Texture | null },
+    height: { onek: _.Texture | null },
+    specular: { onek: _.Texture | null },
+    opacity: { onek: _.Texture | null },
+    metal: { onek: _.Texture | null },
+    Ao: { onek: _.Texture | null },
 }
 
 export default class LoadModels {
@@ -33,25 +36,30 @@ export default class LoadModels {
     loadedTextures: Map<string, TextureContainer>;
     downloadStaredFlag: boolean;
     downloadPause: boolean;
-    sofa_group : _.Group ; 
-    table_group : _.Group ; 
+    sofa_group: _.Group;
+    table_group: _.Group;
+    spinner: HTMLElement;
+    lampcover: _.Mesh;
+    lampLight: _.PointLight;
+    propmt : HTMLElement ; 
 
 
     constructor() {
         this.experience = new Experience();
-        this.createModelGroups() ; 
+        this.createModelGroups();
         this.loadedModels = new Map();
         this.loadedhdris = new Map();
         this.loadedTextures = new Map();
         this.downloadPause = false;
+        this.spinner = document.querySelector('.spinner') as HTMLElement;
         this.createLoaders();
     }
 
-    createModelGroups(){
-        this.sofa_group = new _.Group() ; 
-        this.table_group = new _.Group() ;
-        this.experience.scene.add( this.sofa_group ) ;
-        this.experience.scene.add( this.table_group ) ; 
+    createModelGroups() {
+        this.sofa_group = new _.Group();
+        this.table_group = new _.Group();
+        this.experience.scene.add(this.sofa_group);
+        this.experience.scene.add(this.table_group);
     }
 
     createLoaders() {
@@ -66,7 +74,9 @@ export default class LoadModels {
         this.loaders.exrloader.setDataType(_.FloatType);
         this.loaders.rgbeloader.setDataType(_.FloatType);
 
-        this.loaders.dracoloader.setDecoderPath('/draco/');
+
+        this.loaders.dracoloader.setDecoderConfig({ type: "js" })
+        this.loaders.dracoloader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
         this.loaders.glbloader.setDRACOLoader(this.loaders.dracoloader);
     }
 
@@ -91,94 +101,118 @@ export default class LoadModels {
         })
     }
 
-    loadglTF(): Promise<Map<string, GLTF>> {
-        return new Promise((res) => {
-            this.experience.data.forEach(async (elm: datatype, idx) => {
-                const glTF = await this.loaders.glbloader.loadAsync(elm.path);
-                glTF.scene.traverse((e) => {
-                    if (e instanceof _.PointLight) {
-                        this.light = e;
+    ProgressiveLoading() {
+        const loadModel = (idx: number) => {
+            this.spinner.style.display = 'inline' ; 
+            if (idx < this.experience.data.length) {
+                this.loaders.glbloader.loadAsync(this.experience.data[idx].path).then((gltf) => {
+                    gltf.scene.traverse((e) => {
+                        if (e instanceof _.Mesh) {
+                            if (e.name == 'Lamp_Cover') {
+                                this.lampcover = e;
+                            }
+                            if (this.experience.data[idx].group == null) {
+                                if (e.name.startsWith('CA')) {
+                                    e.castShadow = true;
+                                }
+                                if (e.name.startsWith('RS')) {
+                                    e.receiveShadow = true;
+                                }
+                            }
+                            else {
+                                e.castShadow = true;
+                                e.receiveShadow = true;
+                            }
+                        }
+                        if (e instanceof _.PointLight) {
+                            this.lampLight = e;
+                        }
+                    })
+                    if (this.experience.data[idx].group == 'sofa') {
+                        this.sofa_group.add(gltf.scene);
                     }
+                    else {
+                        this.experience.scene.add(gltf.scene);
+                    }
+                    idx++;
+                    loadModel(idx);
+                })
+            }
+            else {
+                console.log('Loaded All Models')
+
+                setTimeout(() => {
+                    this.experience.env.sunlight.intensity = 12;
+                    this.experience.renderer.ComposerEnabled = true;
+
+                    const suburfaceMaterial = createSubsurfaceMaterial();
+                    this.lampcover.material = suburfaceMaterial;
+
+                    this.lampLight.intensity = 0;
+                    this.lampLight.castShadow = true;
+                    this.lampLight.shadow.bias = -0.00009;
+                    this.lampLight.shadow.mapSize.width = 1024;
+                    this.lampLight.shadow.mapSize.height = 1024;
+
+                    this.experience.propmt.style.opacity = "0"  ; 
+                    this.spinner.style.display = 'none' ; 
+
+                }, 2000);
+                return;
+            }
+        }
+
+        this.spinner.style.display = 'inline' ; 
+        loadModel(0);
+    }
+
+    async LoadTexturesOfCategory(category: string): Promise<any> {
+
+        let count = 0;
+
+        return new Promise((res) => {
+            MaterialDir.forEach((e, idx) => {
+                if (category == e.parnetContainer) {
+                    this.loaders.textureloader.loadAsync(e.base_path + e.textures[0]).then((e) => {
+                        BaseTex[idx] = e;
+                        count++;
+                        if (count == 4) {
+                            res(BaseTex);
+                        }
+                    })
+                }
+            })
+        })
+    }
+
+    async loadGltf(idx: number) {
+        if (sofa_models[idx].group == 'sofa') {
+            const group = this.experience.resources.sofa_group;
+            group.traverse(elem => {
+                if (elem instanceof _.Mesh) {
+                    if (elem.material.map) {
+                        elem.material.map.dispose();
+                    }
+                    elem.material.dispose();
+                    elem.geometry.dispose();
+                }
+            })
+
+            group.remove(...group.children);
+
+            sofa_models[idx].model_path.map(async model_link => {
+                this.spinner.style.display = 'block';
+                const model = await this.loaders.glbloader.loadAsync(model_link);
+                model.scene.traverse((e) => {
                     if (e instanceof _.Mesh) {
                         e.castShadow = true;
                         e.receiveShadow = true;
-                        console.log(e.name);
                     }
                 })
-                this.loadedModels.set(elm.name, glTF);
-                if(elm.group){
-                    if( elm.group == 'sofa' ){
-                        this.sofa_group.add(glTF.scene) ; 
-                    }
-                    if( elm.group == 'table' ){
-                        this.table_group.add(glTF.scene) ; 
-                    }
-                }
-                else{
-                    this.experience.scene.add(glTF.scene);
-                }
-                if (idx == data.length - 1) res(this.loadedModels);
-            })
-        }
-        )
-    }
-
-    LoadTexturesOfCategory(category: string): Promise<any> {
-        console.log(category);
-        return new Promise(async (resolve, reject) => {
-            try {
-                const promises = Materials2.map(async (e) => {
-
-                    if (category == e.parnetContainer) {
-                        const baseTexture = await this.loaders.textureloader.loadAsync(e.base.onek);
-
-                        const loadedTex: TextureContainer = {
-                            base: { onek: baseTexture, twok: null, fourk: null },
-                            normal: { onek: null, twok: null, fourk: null },
-                            rough: { onek: null, twok: null, fourk: null },
-                            metal: { onek: null, twok: null, fourk: null },
-                            Ao: { onek: null, twok: null, fourk: null },
-                            specular: { onek: null, twok: null, fourk: null },
-                            opacity: { onek: null, twok: null, fourk: null },
-                            height: { onek: null, twok: null, fourk: null },
-                        }
-
-                        this.loadedTextures.set(e.name, loadedTex);
-
-                        return baseTexture;
-                    }
-                });
-
-                const textures = await Promise.all(promises);
-                resolve(textures);
-            } catch (error) {
-                console.error("Error occurred while loading textures:", error);
-                reject(error);
-            }
-        });
-    }
-
-    async loadGltf(idx : number ) {
-        if( sofa_models[idx].group == 'sofa' ){
-            const group = this.experience.resources.sofa_group ; 
-            console.log(group);
-            group.traverse(elem=>{
-                if( elem instanceof _.Mesh ){
-                    if( elem.material.map ){
-                        elem.material.map.dispose() ; 
-                    }
-                    elem.material.dispose() ; 
-                    elem.geometry.dispose() ; 
-                }
+                group.add(model.scene);
+                this.spinner.style.display = 'none';
             })
 
-            group.remove(...group.children) ; 
-
-            sofa_models[idx].model_path.map( async model_link=>{
-                const model = await this.loaders.glbloader.loadAsync(model_link) ; 
-                group.add( model.scene ) ; 
-                console.log(group);
-            })
         }
     }
 }

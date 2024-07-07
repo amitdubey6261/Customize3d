@@ -28,7 +28,7 @@ class GroundProjectedSkybox extends Mesh {
 
 				varying vec3 vWorldPosition;
 
-				uniform float radius;
+				uniform float radius;	
 				uniform float height;
 				uniform float angle;
 

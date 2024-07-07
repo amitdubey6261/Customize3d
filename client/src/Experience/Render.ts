@@ -1,26 +1,30 @@
 import * as _ from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { SSAOPass } from 'three/examples/jsm/postprocessing/SSAOPass.js';
-import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
-import { TAARenderPass } from 'three/examples/jsm/postprocessing/TAARenderPass.js';
-import { GammaCorrectionShader } from 'three/examples/jsm/Addons.js';
 
 import Experience from './Experience';
+import { OutputPass, RenderPass, SSAOPass, TAARenderPass, UnrealBloomPass } from 'three/examples/jsm/Addons.js';
 import GUI from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
 export default class Render {
     experience: Experience;
     renderer: _.WebGLRenderer;
-    enabled: boolean;
+    ComposerEnabled: boolean;
     composer: EffectComposer;
+    camera: _.PerspectiveCamera;
+    scene: _.Scene;
+    taaRenderPass: TAARenderPass;
+    bloompass: UnrealBloomPass;
+    gui: GUI;
 
     constructor() {
         this.experience = new Experience();
-        this.enabled = true;
+        this.scene = this.experience.scene;
+        this.camera = this.experience.camera.camera;
+        this.ComposerEnabled = false;
         this.createRenderer();
         this.createComposer();
+        this.OnOFFPostprocessing();
+        this.HDRIControl();
     }
 
     createRenderer() {
@@ -38,100 +42,79 @@ export default class Render {
         this.renderer.shadowMap.type = _.VSMShadowMap;
         this.renderer.outputColorSpace = _.SRGBColorSpace;
         this.renderer.toneMapping = _.ACESFilmicToneMapping;
-        this.renderer.toneMappingExposure = .5 ; 
-        this.renderer.autoClear = false;
+        this.renderer.toneMappingExposure = .4;
+        this.renderer.autoClear = true;
+        this.gui = this.experience.gui;
     }
 
-    createComposer(){
-        this.composer = new EffectComposer( this.renderer ) ; 
-        const renderPass = new RenderPass( this.experience.scene , this.experience.camera.camera );
-        renderPass.clearAlpha = 0 ; 
-        this.composer.addPass(renderPass) ; 
+    createComposer() {
+        this.composer = new EffectComposer(this.renderer);
 
-        // const fxaapass = new ShaderPass(FXAAShader) ; 
+        const size = new _.Vector2();
+        this.renderer.getSize(size);
+        this.composer.setPixelRatio(1);
 
-        const ssaoPass = new SSAOPass( this.experience.scene , this.experience.camera.camera , window.innerWidth , window.innerHeight );
-        this.composer.addPass( ssaoPass );
+        const renderPass = new RenderPass(this.scene, this.camera);
+        renderPass.clearAlpha = 0;
+        this.composer.addPass(renderPass);
+
+        const bloomPass = new UnrealBloomPass( new _.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+        bloomPass.threshold = 0;
+        bloomPass.strength = .1;
+        bloomPass.radius = 0;
+        this.composer.addPass(bloomPass)
+
+        const ssaoPass = new SSAOPass(this.scene, this.camera, size.width, size.height);
+        this.composer.addPass(ssaoPass);
+        ssaoPass.output = SSAOPass.OUTPUT.Default; // SSAOPass.OUTPUT.Depth SSAOPass.OUTPUT.Normal  //SSAOPass.OUTPUT.Blur //SSAOPass.OUTPUT.SSAO //SSAOPass.OUTPUT.Default
+        ssaoPass.kernelRadius = 1;
+        ssaoPass.minDistance = 0.0001;
+        ssaoPass.maxDistance = 1;
+
+        const ssao = document.querySelector('#ssao-btn') as HTMLInputElement;
+        ssao.addEventListener('input', () => {
+            if (ssao.checked) {
+                this.composer.addPass(ssaoPass);
+            }
+            else {
+                this.composer.removePass(ssaoPass);
+            }
+        })
 
         const outputPass = new OutputPass();
-        this.composer.addPass( outputPass );
+        this.composer.addPass(outputPass);
 
-        // const pixelRatio = this.renderer.getPixelRatio();
-        // fxaapass.material.uniforms['resolution'].value.x = 1/(window.innerWidth*pixelRatio)
-        // fxaapass.material.uniforms['resolution'].value.y = 1/(window.innerHeight*pixelRatio)
+        return this.composer;
+    }
 
-        // this.composer.addPass(fxaapass) ; 
-
-        const gui = new GUI();
-
-        gui.add( ssaoPass, 'output', {
-            'Default': SSAOPass.OUTPUT.Default,
-            'SSAO Only': SSAOPass.OUTPUT.SSAO,
-            'SSAO Only + Blur': SSAOPass.OUTPUT.Blur,
-            'Depth': SSAOPass.OUTPUT.Depth,
-            'Normal': SSAOPass.OUTPUT.Normal
-        } ).onChange( function ( value ) {
-
-            ssaoPass.output = value;
-
-        } );
-
-        const param = { TAAEnabled: '1', TAASampleLevel: 0 };
-        let taaRenderPass : any ; 
-
-        gui.add( param, 'TAAEnabled', {
-            'Disabled': '0',
-            'Enabled': '1'
-        } ).onFinishChange( function () {
-
-            if (  taaRenderPass ) {
-
-                taaRenderPass.enabled = ( param.TAAEnabled === '1' );
-                renderPass.enabled = ( param.TAAEnabled !== '1' );
-
+    OnOFFPostprocessing() {
+        const elem = document.querySelector('#pp-btn') as HTMLInputElement;
+        elem?.addEventListener('click', () => {
+            if (elem.checked) {
+                this.ComposerEnabled = true;
             }
-
-        } );
-
-        gui.add( param, 'TAASampleLevel', {
-            'Level 0: 1 Sample': 0,
-            'Level 1: 2 Samples': 1,
-            'Level 2: 4 Samples': 2,
-            'Level 3: 8 Samples': 3,
-            'Level 4: 16 Samples': 4,
-            'Level 5: 32 Samples': 5
-        } ).onFinishChange( function () {
-
-            if ( taaRenderPass ) {
-
-                taaRenderPass.sampleLevel = param.TAASampleLevel;
-
+            else {
+                this.ComposerEnabled = false;
             }
+        })
+    }
 
-        } );
-
-        gui.close();
-
-        taaRenderPass = new TAARenderPass( this.experience.scene , this.experience.camera.camera );
-        taaRenderPass.unbiased = false;
-        this.composer.addPass( taaRenderPass );
-
-        const gammapass = new ShaderPass( GammaCorrectionShader ) ; 
-        this.composer.addPass(gammapass)
-
-        gui.add( ssaoPass, 'kernelRadius' ).min( 0 ).max( 32 );
-        gui.add( ssaoPass, 'minDistance' ).min( 0.001 ).max( 0.02 );
-        gui.add( ssaoPass, 'maxDistance' ).min( 0.01 ).max( 0.3 );
-        gui.add( ssaoPass, 'enabled' );
-
-        return this.composer ;
+    HDRIControl() {
+        const elem = document.querySelector('#customRange3') as HTMLInputElement;
+        elem.addEventListener('input', (e) => {
+            //@ts-ignore
+            this.renderer.toneMappingExposure = e.target.value;
+        })
     }
 
     render() {
-        if (this.enabled) {
+        if( this.ComposerEnabled ){
+            if( this.composer ){
+                this.composer.render() ; 
+            }
+        }
+        else{
             this.renderer.render(this.experience.scene, this.experience.camera.camera);
-        } else {
-            this.composer.render();
         }
     }
 }

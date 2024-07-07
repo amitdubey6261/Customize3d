@@ -3,80 +3,49 @@ export type sofa_data = {
     model_ref : string , 
     parent_container : string , 
     model_img : string , 
-    model_path : string[], //more than 1 model 
+    model_path : string[], 
     group : 'sofa' | 'table' | null 
 }
 
 export const sofa_models : sofa_data[] = [
     {
-        name : 'Rounded Sofa' , 
+        name : 'Rounded' , 
         model_ref : '' , 
-        parent_container : 'Model-continer',  
-        model_img : '/imgs/01.png' , 
+        parent_container : 'SofaContainer',  
+        model_img : 'https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/4.webp' , 
         model_path : [
-            '/models/Round_Sofa.glb'
+            'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/Sofa_Set2.glb'
         ],
         group : 'sofa' , 
     } , 
     {
-        name : 'Rectangular Sofa' , 
+        name : 'Rectangular' , 
         model_ref : '' , 
-        parent_container : 'Model-continer',
-        model_img : '/imgs/02.png' , 
+        parent_container : 'SofaContainer',
+        model_img : 'https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/5.webp' , 
         model_path : [
-            '/models/Sectional_Sofa.glb'
+            'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/Sectional_Sofa.optimized.glb'
         ],
         group : 'sofa' , 
     } , 
     {
-        name : 'Table Sofa' , 
+        name : 'Table' , 
         model_ref : '' , 
-        parent_container : 'Model-continer',
-        model_img : '/imgs/03.png' , 
+        parent_container : 'SofaContainer',
+        model_img : 'https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/6.webp' , 
         model_path : [
-            '/models/sofa_table_scene.glb'
+            'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/Sofa_Set.glb'
         ],
         group : 'sofa' , 
     } , 
     {
-        name : 'Table Sofa 02' , 
+        name : 'Table 02' , 
         model_ref : '' , 
-        parent_container : 'Model-continer',
-        model_img : '/imgs/04.png' , 
+        parent_container : 'SofaContainer',
+        model_img : 'https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/7.webp' , 
         model_path : [
-            '/models/sofa_table_scene02.glb'
+            'https://d2629xvaofl3d3.cloudfront.net/c3d_v2/gltf/Wooden_Sofa.glb'
         ],
         group : 'sofa' , 
     } , 
-    // {
-    //     name : 'Default Sofa 2' , 
-    //     model_ref : '' , 
-    //     parent_container : 'Model-continer',
-    //     model_img : 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Sofa_Images/03.png' , 
-    //     model_path : [
-    //         'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Wood_Sofa_2.glb',
-    //         'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Wood_Chair.glb'
-    //     ],
-    //     group : 'sofa' , 
-    // } , 
-    // {
-    //     name : 'create&barrel01' , 
-    //     model_ref : '' , 
-    //     parent_container : 'Model-continer',
-    //     model_img : 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Sofa_Images/cb01.png' , 
-    //     model_path : [
-    //         'https://d2629xvaofl3d3.cloudfront.net/models/Create&Barrel/crate&barrel_Models/model_01.glb',
-    //     ],
-    //     group : 'sofa' , 
-    // } , 
-    // {
-    //     name : 'create&barrel07' , 
-    //     model_ref : '' , 
-    //     parent_container : 'Model-continer',
-    //     model_img : 'https://d2629xvaofl3d3.cloudfront.net/models/Sofa_Models/Sofa_Images/cb07.png' , 
-    //     model_path : [
-    //         'https://d2629xvaofl3d3.cloudfront.net/models/Create&Barrel/crate&barrel_Models/model_07.glb',
-    //     ],
-    //     group : 'sofa' , 
-    // } , 
 ]

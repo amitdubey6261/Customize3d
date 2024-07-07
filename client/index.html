@@ -21,12 +21,249 @@
 </head>
 
 <body>
+
   <div id="app">
     <div class="Experience">
       <canvas id="canvas"></canvas>
       <div class="spinner"></div>
+      <div style="color: #ff402b ; background-color:  white ; padding: 0px 10px 0px 10px ; border-radius: 5px;" class="prompt">Drag & Drop Items from the catalogue to the scene</div>
     </div>
-    <div class="ui-container">
+
+    <div class="cl-icon">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="26" height="26" rx="4" fill="white" />
+        <path d="M6.33398 6.3335H19.6673" stroke="#27282D" stroke-width="1.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6.33398 13H19.6673" stroke="#27282D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M6.33398 19.667H19.6673" stroke="#27282D" stroke-width="1.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+
+    <div class="ui">
+
+      <div class="day-night">
+        <div style="transform: translateX(20px);" id="dn-slider"></div>
+      </div>
+
+      <div class="ui-icon-container">
+        <div class="ic-1-wrapper">
+          <svg id="ic-1" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.67969 15.9199L9.23969 8.35992L1.67969 0.799921" stroke="#FF5A50" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <svg id="ic-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.66602 6.25033V3.50033C1.66602 3.0141 1.85917 2.54778 2.20299 2.20396C2.5468 1.86015 3.01312
+             1.66699 3.49935 1.66699H6.24935M16.3327 11.7503V14.5003C16.3327 14.9866
+              16.1395 15.4529 15.7957 15.7967C15.4519 16.1405 14.9856 16.3337 14.4993 16.3337H11.7493M11.7493
+               1.66699H14.4993C14.9856 1.66699
+                15.4519 1.86015 15.7957 2.20396C16.1395 2.54778 16.3327 3.0141 16.3327 3.50033V6.25033M6.24935
+                 16.3337H3.49935C3.01312 16.3337 2.5468 16.1405 2.20299
+              15.7967C1.85917 15.4529 1.66602 14.9866 1.66602
+              14.5003V11.7503" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+
+      </div>
+      <div class="accordion" id="accordionExample">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Camera Viewpoints
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="thumbnail">
+                <div class="thumb-container cameraVp">
+                  <img src="https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/0.webp" alt="">
+                </div>
+                <p class="thumb-name">Main View</p>
+              </div>
+              <div class="thumbnail">
+                <div class="thumb-container cameraVp">
+                  <img src="https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/1.webp" alt="">
+                </div>
+                <p class="thumb-name">Sofa View</p>
+              </div>
+              <div class="thumbnail">
+                <div class="thumb-container cameraVp">
+                  <img src="https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/2.webp" alt="">
+                </div>
+                <p class="thumb-name">Window View</p>
+              </div>
+              <div class="thumbnail">
+                <div class="thumb-container cameraVp">
+                  <img src="https://d2629xvaofl3d3.cloudfront.net/materials/webp_thumbs/3.webp" alt="">
+                </div>
+                <p class="thumb-name">Televison View</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Sofa Customization
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body SofaContainer">
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button preloaderOf="leathers" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Leather Fabrics
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body leathers">
+              <div class="bspineer"></div>
+              <div class="accordian-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button preloaderOf="fabrics" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Cotton Fabrics
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body fabrics">
+              <div class="bspineer"></div>
+              <div class="accordian-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button preloaderOf="wood" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Wood
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body wood">
+              <div class="bspineer"></div>
+              <div class="accordian-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSix">
+            <button preloaderOf="metals" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Metals
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body metals">
+              <div class="bspineer"></div>
+              <div class="accordian-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSeven">
+            <button preloaderOf="pillow" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              Pillow Material
+            </button>
+          </h2>
+          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body pillow">
+              <div class="bspineer"></div>
+              <div class="accordian-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingEight">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              Advanced Settings
+            </button>
+          </h2>
+          <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+            data-bs-parent="#accordionExample">
+            <div class="Advanced-body">
+              <div class="pp">
+                <p style="font-size: 12px;">View Stats</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="stats-btn">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">Postprocessing</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" checked type="checkbox" role="switch" id="pp-btn">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">SSAO</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" checked type="checkbox" role="switch" id="ssao-btn">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">HDRI</p>
+                <div class="form-check form-switch">
+                  <input type="range" class="form-range" min="0" max=".9" step="0.01" value=".5" id="customRange3">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">Lamp</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="lamp-btn">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">Lamp Intensity</p>
+                <div class="form-check form-switch">
+                  <input type="range" class="form-range" min="0" max="50" step="0.01" id="lampIntensity">
+                </div>
+              </div>
+              <div class="pp">
+                <p style="font-size: 12px;">Version</p>
+                <p style="font-size: 12px; font-weight: bolder;">06 July</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    <div style="display: none;" class="ui-container">
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -42,8 +279,7 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseOneModel"  aria-expanded="false"
-                      aria-controls="collapseOneModel">
+                      data-bs-target="#collapseOneModel" aria-expanded="false" aria-controls="collapseOneModel">
                       Sofa Variants
                     </button>
                   </h2>
@@ -105,80 +341,6 @@
             </div>
           </div>
 
-
-          <!-- <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseTwo">
-                Table Leg Materials
-              </button>
-            </h2>
-            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-              <div class="accordion-body">
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button preload" preloaderOf="Metal" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseOneMetal" aria-expanded="true"
-                        aria-controls="collapseOneMetal">
-                        Metallic
-                      </button>
-                    </h2>
-                    <div id="collapseOneMetal" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-                      <div id="Metal" class="accordion-body accordion-body-inner">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed preload" preloaderOf="Wood" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseTwoWood" aria-expanded="false"
-                        aria-controls="collapseTwoWood">
-                        Wood
-                      </button>
-                    </h2>
-                    <div id="collapseTwoWood" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div id="Wood" class="accordion-body accordion-body-inner"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseThree">
-                Glass Variants
-              </button>
-            </h2>
-            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-              <div class="accordion-body">
-
-
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button preload" preloaderOf="GlassPattern" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseOneGlass" aria-expanded="true"
-                        aria-controls="collapseOneMetal">
-                        Pattern Glass 
-                      </button>
-                    </h2>
-                    <div id="collapseOneGlass" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-                      <div id="GlassPattern" class="accordion-body accordion-body-inner">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div> -->
-
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -201,26 +363,29 @@
                       <div class="accordion-body accordion-body-inner">
 
                         <label for="customRange1" class="form-label">Sunlight</label>
-                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
+                        <div class="form-check form-switch"
+                          style="display: flex; justify-content: end; align-items: center;">
                           <input class="form-check-input" type="checkbox" role="switch" id="day-night-switch" checked>
                         </div>
 
                         <label for="customRange1" class="form-label">Ground Projection</label>
-                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
-                          <input class="form-check-input" type="checkbox" role="switch" id="gps" >
+                        <div class="form-check form-switch"
+                          style="display: flex; justify-content: end; align-items: center;">
+                          <input class="form-check-input" type="checkbox" role="switch" id="gps">
                         </div>
- 
+
                         <label for="customRange1" class="form-label">HDRI Intensity</label>
                         <input type="range" class="form-range" id="HDRIIntensity" min=".2" max="5" value=".2">
 
                         <label for="customRange1" class="form-label">Lamp switch</label>
-                        <div class="form-check form-switch" style="display: flex; justify-content: end; align-items: center;">
+                        <div class="form-check form-switch"
+                          style="display: flex; justify-content: end; align-items: center;">
                           <input class="form-check-input" type="checkbox" role="switch" id="LampSwitch" checked>
                         </div>
-                        
+
                         <label for="customRange1" class="form-label">Intensity</label>
-                        <input type="range" class="form-range" id="LampIntensity" min=".5" max="100" value=".5" >
-                        
+                        <input type="range" class="form-range" id="LampIntensity" min=".5" max="100" value=".5">
+
                       </div>
                     </div>
                   </div>
@@ -232,7 +397,7 @@
                       </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      
+
                       <div class="accordion-body accordion-body-inner">
 
                         <label for="customRange1" class="form-label">Quality</label>

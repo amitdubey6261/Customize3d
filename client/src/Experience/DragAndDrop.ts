@@ -24,7 +24,7 @@ export default class DragAndDrop {
     }
 
     handleModelDragAndDrop(){
-        const modelImages = document.getElementsByClassName('model-thumbnail') ; 
+        const modelImages = document.getElementsByClassName('model-thumb') ; 
         Array.from(modelImages).map((elem)=>{
             elem.addEventListener('dragend' , ()=>{
                 const idx = elem.getAttribute('uid') ; 
